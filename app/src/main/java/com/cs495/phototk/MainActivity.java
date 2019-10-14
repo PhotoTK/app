@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (isServicesOK()) {
@@ -42,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
             dialog.show();
         }
         else {
+            Log.e(TAG, "isServicesOK: requests cannot be made");
             Toast.makeText(this, "Map requests cannot be made", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
 
     private void init() {
+        Log.d(TAG, "init: called");
         Button btnMap = findViewById(R.id.btnMap);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
