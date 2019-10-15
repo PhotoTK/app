@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         if (isServicesOK()) {
             init();
         }
-
+        // exif botton
         Button btnEXIF = (Button) findViewById(R.id.btnEXIF);
         btnEXIF.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
                 openEXIF();
             }
         });
+
+        initWeatherButton();
+        initManagementButton();
+        initClestialButton();
+
     }
 
     public void openEXIF() {
@@ -80,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void initWeatherButton() {
         Log.d(TAG, "initWeatherButton: called");
         Button btnWeather = findViewById(R.id.btnWeather);
@@ -91,4 +97,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initManagementButton() {
+        Log.d(TAG, "initManagementButton: called");
+        Button btnManagement = findViewById(R.id.btnManagement);
+        btnManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ManagementActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initClestialButton() {
+        Log.d(TAG, "initClestialButton: called");
+        Button btnCelestial = findViewById(R.id.btnCelestial);
+        btnCelestial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CelestialActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }
