@@ -14,6 +14,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 public class MainActivity extends AppCompatActivity {
+    private Button btnEXIF;
 
     // Constants
     private static final String TAG = "MainActivity";
@@ -27,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
         if (isServicesOK()) {
             init();
         }
+
+        Button btnEXIF = (Button) findViewById(R.id.btnEXIF);
+        btnEXIF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openEXIF();
+            }
+        });
+    }
+
+    public void openEXIF() {
+        Intent intent = new Intent(this,EXIFActivity.class);
+        startActivity(intent);
     }
 
     private Boolean isServicesOK() {
@@ -60,15 +74,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void weather() {
-        Log.d(TAG, "init: called");
-        Button btnWeather = findViewById(R.id.btnWeather);
-        btnWeather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 }
