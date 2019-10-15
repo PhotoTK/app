@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnMap"
         android:layout_width="127dp"
-        android:layout_height="wrap_content"
+        android:layout_height="91dp"
         android:text="Map" />
+
+    <Button
+        android:id="@+id/btnManagement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Camera Gear Management" />
+
+    <Button
+        android:id="@+id/btnCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:layout_weight="1"
+        android:text="Calculator" />
 
     <Button
         android:id="@+id/btnWeather"
@@ -21,8 +36,15 @@
     <Button
         android:id="@+id/btnEXIF"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:layout_weight="1"
         android:text="EXIF" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnCelestial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Celestial Event" />
+
+</TableLayout>

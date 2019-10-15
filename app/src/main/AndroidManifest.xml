@@ -17,7 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".CelestialActivity"></activity>
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".ManagementActivity" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".WeatherActivity" />
         <activity android:name=".EXIFActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
