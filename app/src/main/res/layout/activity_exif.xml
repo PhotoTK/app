@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Open an Image" />
 
-    <Button
+    <EditText
         android:id="@+id/editdocument"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="edit an Image" />
+        android:hint="input EXIF info" />
 
     <TextView
         android:id="@+id/texturi"

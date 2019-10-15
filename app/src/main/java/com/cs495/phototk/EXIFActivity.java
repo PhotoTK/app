@@ -8,9 +8,10 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,29 +22,17 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class EXIFActivity extends AppCompatActivity {
-        private  ExifInterface exif = null;
-
-        public  ExifInterface getExif(String filepath) {
-            try {
-                exif = new ExifInterface(filepath);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return exif;
-        }
-
+public class EXIFActivity extends AppCompatActivity{
+    private boolean encode;
     private static final int RQS_OPEN_IMAGE = 1;
-
     Button buttonOpen;
+    EditText textEdit;
     TextView textUri;
     ImageView imageView;
-
     Uri targetUri = null;
 
     View.OnClickListener buttonOpenOnClickListener =
             new View.OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
@@ -52,11 +41,18 @@ public class EXIFActivity extends AppCompatActivity {
                     intent.setType("image/jpeg");
                     startActivityForResult(intent, RQS_OPEN_IMAGE);
                 }
-
             };
+
+/*    View.OnClickListener textEditClickListener =
+            new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    setExifInfo();
+                }
+            };
+*/
     View.OnClickListener textUriOnClickListener =
             new View.OnClickListener(){
-
                 @Override
                 public void onClick(View v) {
                     if (targetUri != null){
@@ -67,12 +63,10 @@ public class EXIFActivity extends AppCompatActivity {
                                             .openInputStream(targetUri));
                             imageView.setImageBitmap(bm);
                         } catch (FileNotFoundException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
                     }
                 }
-
             };
 
     View.OnClickListener imageOnClickListener =
@@ -154,25 +148,46 @@ public class EXIFActivity extends AppCompatActivity {
                     "photoUri == null",
                     Toast.LENGTH_LONG).show();
         }
-    };
+    }
 
-    void setExif (String filepath, String longitude, String latitude, String time) {
-        try {
-            exif = new ExifInterface(filepath);
-        } catch (IOException ex) {
-            Log.e("Mine", "cannot read exif", ex);
-        }
-        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, longitude);
-        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, latitude);
-        exif.setAttribute(ExifInterface.TAG_DATETIME, time);
-        exif.setAttribute(ExifInterface.TAG_MAKE, longitude);
-        exif.setAttribute(ExifInterface.TAG_MODEL, latitude);
-        try {
-            exif.saveAttributes();         //最后保存起来
-        } catch (IOException e) {
-            Log.e("Mine", "cannot save exif", e);
+/*    public void setExifInfo() {
+        String content = textEdit.getText().toString().trim();
+        if (!TextUtils.isEmpty(content)) {
+            setExifStringInfo(content);
+            save();
+            finish();
         }
     }
+
+    public void save() {
+        try {
+            textEdit.saveAttributes();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setExifStringInfo(String s) {
+        textEdit.setAttribute(ExifInterface.TAG_MAKE, s);
+        textEdit.setAttribute(ExifInterface.TAG_MODEL, s);
+        textEdit.setAttribute(ExifInterface.TAG_DATETIME, s);
+        textEdit.setAttribute(ExifInterface.TAG_ARTIST, s);
+        textEdit.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
+        textEdit.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
+        textEdit.setAttribute(ExifInterface.TAG_FLASH, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
+        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+        textEdit.setAttribute(ExifInterface.TAG_USER_COMMENT, s);
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,8 +197,8 @@ public class EXIFActivity extends AppCompatActivity {
         buttonOpen = (Button) findViewById(R.id.opendocument);
         buttonOpen.setOnClickListener(buttonOpenOnClickListener);
 
-        buttonOpen = (Button) findViewById(R.id.editdocument);
-        buttonOpen.setOnClickListener(buttonOpenOnClickListener);
+        //textEdit = (EditText) findViewById(R.id.editdocument);
+        //textEdit.setOnClickListener(textEditClickListener);
 
         textUri = (TextView) findViewById(R.id.texturi);
         textUri.setOnClickListener(textUriOnClickListener);
