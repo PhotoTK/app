@@ -163,7 +163,7 @@ public class EXIFActivity extends AppCompatActivity{
                 parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "rw");
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                 exifInterface = new ExifInterface(fileDescriptor);
-                exifInterface.setAttribute(ExifInterface.TAG_MAKE, "apple");
+                exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
                 try {
                     exifInterface.saveAttributes();
                 } catch (IOException e) {
