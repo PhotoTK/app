@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         Log.d(TAG, "init: called");
+        initMapButton();
+        // initWeatherButton(); // TODO: uncomment when weather activity is ready
+    }
+
+    private void initMapButton() {
+        Log.d(TAG, "initMapButton: called");
         Button btnMap = findViewById(R.id.btnMap);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void weather() {
-        Log.d(TAG, "init: called");
+    private void initWeatherButton() {
+        Log.d(TAG, "initWeatherButton: called");
         Button btnWeather = findViewById(R.id.btnWeather);
         btnWeather.setOnClickListener(new View.OnClickListener() {
             @Override
