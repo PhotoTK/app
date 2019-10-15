@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         initWeatherButton();
         initManagementButton();
         initClestialButton();
+        initCalculatorButton();
 
     }
 
@@ -122,4 +123,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void initCalculatorButton() {
+        Log.d(TAG, "initClestialButton: called");
+        Button btnCalculator = findViewById(R.id.btnCalculator);
+        btnCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 }
