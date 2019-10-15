@@ -190,54 +190,6 @@ public class EXIFActivity extends AppCompatActivity{
         }
     }
 
-
-
-    /*public void setExifInfo() {
-        String content = textEdit.getText().toString().trim();
-        String path = strPhotoPath;
-        if (!TextUtils.isEmpty(content)) {
-            /*try {
-                exif = new ExifInterface(path);
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(),
-                        "setExifInfo went wrong:\n" + e.toString(),
-                        Toast.LENGTH_LONG).show();
-            }*/ /*
-            setExifStringInfo(content);
-            finish();
-        }
-    }
-
-
-    private void setExifStringInfo(String s) {
-        exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
-        /*exif.setAttribute(ExifInterface.TAG_MODEL, s);
-        exif.setAttribute(ExifInterface.TAG_DATETIME, s);
-        exif.setAttribute(ExifInterface.TAG_ARTIST, s);
-        exif.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
-        exif.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
-        exif.setAttribute(ExifInterface.TAG_FLASH, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
-        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-        exif.setAttribute(ExifInterface.TAG_USER_COMMENT, s);*/
-/*
-        try {
-            exif.saveAttributes();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
