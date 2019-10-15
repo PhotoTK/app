@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btnMap"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:text="Map" />
+
+    <Button
+        android:id="@+id/btnWeather"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="WEATHER" />
+
+    <Button
+        android:id="@+id/btnEXIF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnMap"
-        android:text="Map" />
+        android:layout_weight="1"
+        android:text="EXIF" />
 
 </LinearLayout>
