@@ -33,6 +33,7 @@ public class EXIFActivity extends AppCompatActivity{
     Uri targetUri = null;
     String strPhotoPath;
     ExifInterface exif;
+    ExifInterface exifInterface;
 
     View.OnClickListener buttonOpenOnClickListener =
             new View.OnClickListener() {
@@ -46,11 +47,12 @@ public class EXIFActivity extends AppCompatActivity{
                 }
             };
 
-   View.OnClickListener buttonEditOnClickeListener =
+   View.OnClickListener buttonEditOnClickListener =
             new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    setExifInfo();
+                    String content = textEdit.getText().toString().trim();
+                    setExifInfo(targetUri,content);
                 }
             };
 
@@ -74,7 +76,6 @@ public class EXIFActivity extends AppCompatActivity{
 
     View.OnClickListener imageOnClickListener =
             new View.OnClickListener(){
-
                 @Override
                 public void onClick(View view) {
                     showExif(targetUri);
@@ -90,7 +91,7 @@ public class EXIFActivity extends AppCompatActivity{
                 parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "r");
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
 
-                ExifInterface exifInterface = new ExifInterface(fileDescriptor);
+                exifInterface = new ExifInterface(fileDescriptor);
                 String exif="Exif: " + fileDescriptor.toString();
                 exif += "\nIMAGE_LENGTH: " +
                         exifInterface.getAttribute(ExifInterface.TAG_IMAGE_LENGTH);
@@ -153,19 +154,56 @@ public class EXIFActivity extends AppCompatActivity{
         }
     }
 
+    void setExifInfo(Uri photoUri, String s){
+        if(photoUri != null){
 
-    public void setExifInfo() {
+            ParcelFileDescriptor parcelFileDescriptor = null;
+
+            try {
+                parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "rw");
+                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+                exifInterface = new ExifInterface(fileDescriptor);
+                exifInterface.setAttribute(ExifInterface.TAG_MAKE, "apple");
+                try {
+                    exifInterface.saveAttributes();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(),
+                        "Something wrong:\n" + e.toString(),
+                        Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(),
+                        "Something wrong:\n" + e.toString(),
+                        Toast.LENGTH_LONG).show();
+            }
+
+            strPhotoPath = photoUri.getPath();
+
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "photoUri == null",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
+    /*public void setExifInfo() {
         String content = textEdit.getText().toString().trim();
         String path = strPhotoPath;
         if (!TextUtils.isEmpty(content)) {
-            try {
+            /*try {
                 exif = new ExifInterface(path);
             } catch (IOException e) {
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(),
                         "setExifInfo went wrong:\n" + e.toString(),
                         Toast.LENGTH_LONG).show();
-            }
+            }*/ /*
             setExifStringInfo(content);
             finish();
         }
@@ -173,7 +211,7 @@ public class EXIFActivity extends AppCompatActivity{
 
 
     private void setExifStringInfo(String s) {
-        exif.setAttribute(ExifInterface.TAG_MAKE, s);
+        exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
         /*exif.setAttribute(ExifInterface.TAG_MODEL, s);
         exif.setAttribute(ExifInterface.TAG_DATETIME, s);
         exif.setAttribute(ExifInterface.TAG_ARTIST, s);
@@ -192,14 +230,14 @@ public class EXIFActivity extends AppCompatActivity{
         exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
         exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
         exif.setAttribute(ExifInterface.TAG_USER_COMMENT, s);*/
-
+/*
         try {
             exif.saveAttributes();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -211,7 +249,7 @@ public class EXIFActivity extends AppCompatActivity{
         textEdit = (EditText) findViewById(R.id.editdocument);
 
         buttonEdit = (Button) findViewById(R.id.btn_EXIF_edit);
-        buttonEdit.setOnClickListener(buttonEditOnClickeListener);
+        buttonEdit.setOnClickListener(buttonEditOnClickListener);
 
         textUri = (TextView) findViewById(R.id.texturi);
         textUri.setOnClickListener(textUriOnClickListener);
