@@ -11,7 +11,13 @@
         android:id="@+id/opendocument"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open Document of Image" />
+        android:text="Open an Image" />
+
+    <Button
+        android:id="@+id/editdocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit an Image" />
 
     <TextView
         android:id="@+id/texturi"

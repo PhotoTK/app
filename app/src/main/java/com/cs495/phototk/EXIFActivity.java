@@ -8,6 +8,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +22,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class EXIFActivity extends AppCompatActivity {
+        private  ExifInterface exif = null;
+
+        public  ExifInterface getExif(String filepath) {
+            try {
+                exif = new ExifInterface(filepath);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return exif;
+        }
 
     private static final int RQS_OPEN_IMAGE = 1;
 
@@ -78,17 +89,10 @@ public class EXIFActivity extends AppCompatActivity {
 
             ParcelFileDescriptor parcelFileDescriptor = null;
 
-            /*
-            How to convert the Uri to FileDescriptor, refer to the example in the document:
-            https://developer.android.com/guide/topics/providers/document-provider.html
-             */
             try {
                 parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "r");
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
 
-                /*
-                ExifInterface (FileDescriptor fileDescriptor) added in API level 24
-                 */
                 ExifInterface exifInterface = new ExifInterface(fileDescriptor);
                 String exif="Exif: " + fileDescriptor.toString();
                 exif += "\nIMAGE_LENGTH: " +
@@ -152,12 +156,33 @@ public class EXIFActivity extends AppCompatActivity {
         }
     };
 
+    void setExif (String filepath, String longitude, String latitude, String time) {
+        try {
+            exif = new ExifInterface(filepath);
+        } catch (IOException ex) {
+            Log.e("Mine", "cannot read exif", ex);
+        }
+        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, longitude);
+        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, latitude);
+        exif.setAttribute(ExifInterface.TAG_DATETIME, time);
+        exif.setAttribute(ExifInterface.TAG_MAKE, longitude);
+        exif.setAttribute(ExifInterface.TAG_MODEL, latitude);
+        try {
+            exif.saveAttributes();         //最后保存起来
+        } catch (IOException e) {
+            Log.e("Mine", "cannot save exif", e);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exif);
 
         buttonOpen = (Button) findViewById(R.id.opendocument);
+        buttonOpen.setOnClickListener(buttonOpenOnClickListener);
+
+        buttonOpen = (Button) findViewById(R.id.editdocument);
         buttonOpen.setOnClickListener(buttonOpenOnClickListener);
 
         textUri = (TextView) findViewById(R.id.texturi);
