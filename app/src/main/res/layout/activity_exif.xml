@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/opendocument"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Open an Image" />
 
@@ -19,6 +19,11 @@
         android:layout_height="wrap_content"
         android:hint="input EXIF info" />
 
+    <Button
+        android:id="@+id/btn_EXIF_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="set the EXIF info" />
     <TextView
         android:id="@+id/texturi"
         android:layout_width="wrap_content"

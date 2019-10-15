@@ -26,10 +26,13 @@ public class EXIFActivity extends AppCompatActivity{
     private boolean encode;
     private static final int RQS_OPEN_IMAGE = 1;
     Button buttonOpen;
+    Button buttonEdit;
     EditText textEdit;
     TextView textUri;
     ImageView imageView;
     Uri targetUri = null;
+    String strPhotoPath;
+    ExifInterface exif;
 
     View.OnClickListener buttonOpenOnClickListener =
             new View.OnClickListener() {
@@ -43,14 +46,14 @@ public class EXIFActivity extends AppCompatActivity{
                 }
             };
 
-/*    View.OnClickListener textEditClickListener =
+   View.OnClickListener buttonEditOnClickeListener =
             new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     setExifInfo();
                 }
             };
-*/
+
     View.OnClickListener textUriOnClickListener =
             new View.OnClickListener(){
                 @Override
@@ -141,7 +144,7 @@ public class EXIFActivity extends AppCompatActivity{
                         Toast.LENGTH_LONG).show();
             }
 
-            String strPhotoPath = photoUri.getPath();
+            strPhotoPath = photoUri.getPath();
 
         }else{
             Toast.makeText(getApplicationContext(),
@@ -150,44 +153,52 @@ public class EXIFActivity extends AppCompatActivity{
         }
     }
 
-/*    public void setExifInfo() {
+
+    public void setExifInfo() {
         String content = textEdit.getText().toString().trim();
+        String path = strPhotoPath;
         if (!TextUtils.isEmpty(content)) {
+            try {
+                exif = new ExifInterface(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(),
+                        "setExifInfo went wrong:\n" + e.toString(),
+                        Toast.LENGTH_LONG).show();
+            }
             setExifStringInfo(content);
-            save();
             finish();
         }
     }
 
-    public void save() {
+
+    private void setExifStringInfo(String s) {
+        exif.setAttribute(ExifInterface.TAG_MAKE, s);
+        /*exif.setAttribute(ExifInterface.TAG_MODEL, s);
+        exif.setAttribute(ExifInterface.TAG_DATETIME, s);
+        exif.setAttribute(ExifInterface.TAG_ARTIST, s);
+        exif.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
+        exif.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
+        exif.setAttribute(ExifInterface.TAG_FLASH, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
+        exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+        exif.setAttribute(ExifInterface.TAG_USER_COMMENT, s);*/
+
         try {
-            textEdit.saveAttributes();
+            exif.saveAttributes();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    private void setExifStringInfo(String s) {
-        textEdit.setAttribute(ExifInterface.TAG_MAKE, s);
-        textEdit.setAttribute(ExifInterface.TAG_MODEL, s);
-        textEdit.setAttribute(ExifInterface.TAG_DATETIME, s);
-        textEdit.setAttribute(ExifInterface.TAG_ARTIST, s);
-        textEdit.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
-        textEdit.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
-        textEdit.setAttribute(ExifInterface.TAG_FLASH, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
-        textEdit.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-        textEdit.setAttribute(ExifInterface.TAG_USER_COMMENT, s);
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,8 +208,10 @@ public class EXIFActivity extends AppCompatActivity{
         buttonOpen = (Button) findViewById(R.id.opendocument);
         buttonOpen.setOnClickListener(buttonOpenOnClickListener);
 
-        //textEdit = (EditText) findViewById(R.id.editdocument);
-        //textEdit.setOnClickListener(textEditClickListener);
+        textEdit = (EditText) findViewById(R.id.editdocument);
+
+        buttonEdit = (Button) findViewById(R.id.btn_EXIF_edit);
+        buttonEdit.setOnClickListener(buttonEditOnClickeListener);
 
         textUri = (TextView) findViewById(R.id.texturi);
         textUri.setOnClickListener(textUriOnClickListener);
