@@ -2,7 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_celestial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CelestialActivity"/>
+    tools:context=".CelestialActivity">
+
+    <Button
+        android:id="@+id/btnSolar_Eclipse"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:background="@drawable/sun"
+        android:text="Solar_Eclipse"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/btnMoon_Eclipse"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:background="@drawable/moon"
+        android:text="Moon_Eclipse"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/btnMeteor_Shower"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:background="@drawable/meteorshower"
+        android:text="Meteor_Shower"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="410dp" />
+
+
+</LinearLayout>
