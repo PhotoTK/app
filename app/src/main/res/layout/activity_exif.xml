@@ -19,6 +19,12 @@
         android:layout_height="wrap_content"
         android:hint="input EXIF info" />
 
+    <EditText
+        android:id="@+id/exif_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input EXIF tag that you want to change" />
+
     <Button
         android:id="@+id/btn_EXIF_edit"
         android:layout_width="match_parent"

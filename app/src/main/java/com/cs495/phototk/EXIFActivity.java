@@ -1,5 +1,5 @@
 package com.cs495.phototk;
-
+//API24
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,7 +8,6 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -164,6 +163,24 @@ public class EXIFActivity extends AppCompatActivity{
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                 exifInterface = new ExifInterface(fileDescriptor);
                 exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
+                /*exifInterface.setAttribute(ExifInterface.TAG_MODEL, s);
+                exifInterface.setAttribute(ExifInterface.TAG_DATETIME, s);
+                exifInterface.setAttribute(ExifInterface.TAG_ARTIST, s);
+                exifInterface.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
+                exifInterface.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
+                exifInterface.setAttribute(ExifInterface.TAG_FLASH, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
+                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
+                exifInterface.setAttribute(ExifInterface.TAG_USER_COMMENT, s);*/
                 try {
                     exifInterface.saveAttributes();
                 } catch (IOException e) {
