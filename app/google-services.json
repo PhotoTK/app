@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "645618573506",
+    "firebase_url": "https://phototk-2eecf.firebaseio.com",
+    "project_id": "phototk-2eecf",
+    "storage_bucket": "phototk-2eecf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645618573506:android:c72b5606da99beef19db5b",
+        "android_client_info": {
+          "package_name": "com.cs495.phototk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645618573506-k87p5b0nr69n7peu2ktbf9abu926c012.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-ptFr0Pni6HX1Y__IEEysqrtPYkEUrWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645618573506-k87p5b0nr69n7peu2ktbf9abu926c012.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
