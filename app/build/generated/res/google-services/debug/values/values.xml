@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">562748749431-lphkeb0c5o393u6ffl1tcv6am3dih037.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://phototk-2f6fd.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">562748749431</string>
+    <string name="google_api_key" translatable="false">AIzaSyCd0Hpzee3grHVCxeagNyxHqC6qAdYEjGk</string>
+    <string name="google_app_id" translatable="false">1:562748749431:android:7196a71e8f170c328b7872</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCd0Hpzee3grHVCxeagNyxHqC6qAdYEjGk</string>
+    <string name="google_storage_bucket" translatable="false">phototk-2f6fd.appspot.com</string>
+    <string name="project_id" translatable="false">phototk-2f6fd</string>
+</resources>
