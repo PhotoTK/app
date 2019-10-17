@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cs495.phototk.ui.login.LoginActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         initManagementButton();
         initClestialButton();
         initCalculatorButton();
-
+        initLoginButton();
     }
 
     public void openEXIF() {
@@ -73,6 +74,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "init: called");
         initMapButton();
         // initWeatherButton(); // TODO: uncomment when weather activity is ready
+    }
+
+    private void initLoginButton() {
+        Log.d(TAG, "initLoginButton: called");
+        Button btnMap = findViewById(R.id.btnLogin);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initMapButton() {
