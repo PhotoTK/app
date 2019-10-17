@@ -4,49 +4,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:background="@drawable/crimsontide"
+    android:background="@drawable/backgroundcolor"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="Login" />
 
     <Button
         android:id="@+id/btnMap"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="Map" />
 
     <Button
         android:id="@+id/btnManagement"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="Camera Gear Management" />
 
     <Button
         android:id="@+id/btnCalculator"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="Calculator" />
 
     <Button
         android:id="@+id/btnWeather"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="Weather" />
 
     <Button
         android:id="@+id/btnEXIF"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         android:text="EXIF" />
 
     <Button
         android:id="@+id/btnCelestial"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
         android:text="Celestial Events" />
 
 </TableLayout>

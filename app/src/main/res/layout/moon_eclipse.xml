@@ -5,10 +5,10 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sun Eclipse (time, location, path width, central duration(min:s))" />
+        android:text="Moon Eclipse (time, type, gamma)" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -19,171 +19,133 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText1"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2019/December/26 05:18:53, 1.0°N 102.3°E, 73mi, 3:40" />
+                android:text="2020/Jan/10 19:10, penumbral, 1.073" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone" />
+            android:id="@+id/btntwo" />
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText2"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2020/June/21 06:41:15, 30.5°N 79.7°E, 13mi, 0:38" />
+                android:text="2020/Jul/5 4:30, Penumbral, -1.364" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone1" />
+            android:id="@+id/btntwo1" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText3"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2020/December/14 16:14:39, 40.3°S 67.9°W, 56mi, 2:10" />
+                android:text="2020/Nov/30 9:43, Penumbral, -1.131" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone2" />
+            android:id="@+id/btntwo2" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="48dp" >
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText4"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2021/June/10 10:43:07, 80.8°N 66.8°W, 327, 3:51" />
+                android:text="2021/May/26 11:19, Total, 0.447" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone3" />
+            android:id="@+id/btntwo3" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="48dp" >
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText5"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2021/December/4 07:34:38, 76.8°S 46.2°W, 260, 1:54" />
+                android:text="2021/Nov/19 9:03, Partial, -0.455" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone4" />
+            android:id="@+id/btntwo4" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="48dp" >
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText6"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2022/April/30 20:42:36, 62.1°S 71.5°W, Null, Null" />
+                android:text="2023/May/05 17:23, Penumbral, -1.035" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone5" />
+            android:id="@+id/btntwo5" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="48dp" >
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText7"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="2022/October/25 11:01:20, 61.6°N 77.4°E, Null, Null" />
+                android:text="2023/Oct/28 20:14, Partial, 0.947" />
         </TableRow>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:id="@+id/btnone6" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="48dp" >
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:text="2023/October/14 18:00:41, 11.4°N 83.1°W, 116, 5:17" />
-        </TableRow>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select"
-            android:id="@+id/btnone7" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="48dp" >
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:text="2024/April/8 18:18:29, 25.3°N 104.1°W, 123, 4:28" />
-        </TableRow>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select"
-            android:id="@+id/btnone8" />
+            android:id="@+id/btntwo6" />
 
     </TableLayout>
 

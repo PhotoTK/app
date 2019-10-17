@@ -10,7 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CelestialActivity extends AppCompatActivity {
     private Button btnSolar_Eclipse;
+    private Button btnMoon_Eclipse;
+    private Button btnMeteor_Shower;
     private static final String TAG = "CelestialActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: called");
@@ -20,9 +23,36 @@ public class CelestialActivity extends AppCompatActivity {
         btnSolar_Eclipse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CelestialActivity.this,SolarEclipse.class);
+                Intent intent = new Intent(CelestialActivity.this, SolarEclipse.class);
+                startActivity(intent);
+            }
+        });
+        buttonMoon_Eclipse();
+        buttonMeteor_shower();
+    }
+
+    private void buttonMoon_Eclipse() {
+        Log.d(TAG, "buttonMoon_Eclipse: called");
+        Button btnMoon_Eclipse = findViewById(R.id.btnMoon_Eclipse);
+        btnMoon_Eclipse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CelestialActivity.this, MoonEclipse.class);
                 startActivity(intent);
             }
         });
     }
+
+    private void buttonMeteor_shower() {
+        Log.d(TAG, "buttonMeteor_shower: called");
+        Button btnMeteor_Shower = findViewById(R.id.btnMeteor_Shower);
+        btnMeteor_Shower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CelestialActivity.this, MeteorShower.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }

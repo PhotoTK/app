@@ -12,7 +12,7 @@
         android:id="@+id/btnSolar_Eclipse"
         android:layout_width="match_parent"
         android:layout_height="218dp"
-        android:background="@drawable/sun"
+        android:background="@drawable/star"
         android:text="Solar_Eclipse"
         tools:layout_editor_absoluteX="58dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -21,7 +21,7 @@
         android:id="@+id/btnMoon_Eclipse"
         android:layout_width="match_parent"
         android:layout_height="218dp"
-        android:background="@drawable/moon"
+        android:background="@drawable/star"
         android:text="Moon_Eclipse"
         tools:layout_editor_absoluteX="58dp"
         tools:layout_editor_absoluteY="211dp" />
@@ -29,8 +29,8 @@
     <Button
         android:id="@+id/btnMeteor_Shower"
         android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:background="@drawable/meteorshower"
+        android:layout_height="wrap_content"
+        android:background="@drawable/star"
         android:text="Meteor_Shower"
         tools:layout_editor_absoluteX="58dp"
         tools:layout_editor_absoluteY="410dp" />
