@@ -35,7 +35,7 @@
         android:id="@+id/btnWeather"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="WEATHER" />
+        android:text="Weather" />
 
     <Button
         android:id="@+id/btnEXIF"
@@ -47,6 +47,6 @@
         android:id="@+id/btnCelestial"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="Celestial Event" />
+        android:text="Celestial Events" />
 
 </TableLayout>
