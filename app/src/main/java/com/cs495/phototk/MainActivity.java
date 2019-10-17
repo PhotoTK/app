@@ -15,7 +15,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnEXIF;
 
     // Constants
     private static final String TAG = "MainActivity";
@@ -29,25 +28,6 @@ public class MainActivity extends AppCompatActivity {
         if (isServicesOK()) {
             init();
         }
-        // exif botton
-        Button btnEXIF = (Button) findViewById(R.id.btnEXIF);
-        btnEXIF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openEXIF();
-            }
-        });
-
-        initWeatherButton();
-        initManagementButton();
-        initClestialButton();
-        initCalculatorButton();
-        initLoginButton();
-    }
-
-    public void openEXIF() {
-        Intent intent = new Intent(this,EXIFActivity.class);
-        startActivity(intent);
     }
 
     private Boolean isServicesOK() {
@@ -72,14 +52,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         Log.d(TAG, "init: called");
+        initLoginButton();
         initMapButton();
-        // initWeatherButton(); // TODO: uncomment when weather activity is ready
+        initManagementButton();
+        initCalculatorButton();
+        initWeatherButton();
+        initEXIFButton();
+        initCelestialButton();
     }
 
     private void initLoginButton() {
         Log.d(TAG, "initLoginButton: called");
-        Button btnMap = findViewById(R.id.btnLogin);
-        btnMap.setOnClickListener(new View.OnClickListener() {
+        Button btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -100,18 +85,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initWeatherButton() {
-        Log.d(TAG, "initWeatherButton: called");
-        Button btnWeather = findViewById(R.id.btnWeather);
-        btnWeather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
     private void initManagementButton() {
         Log.d(TAG, "initManagementButton: called");
         Button btnManagement = findViewById(R.id.btnManagement);
@@ -124,18 +97,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initClestialButton() {
-        Log.d(TAG, "initClestialButton: called");
-        Button btnCelestial = findViewById(R.id.btnCelestial);
-        btnCelestial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CelestialActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
     private void initCalculatorButton() {
         Log.d(TAG, "initClestialButton: called");
         Button btnCalculator = findViewById(R.id.btnCalculator);
@@ -143,6 +104,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initWeatherButton() {
+        Log.d(TAG, "initWeatherButton: called");
+        Button btnWeather = findViewById(R.id.btnWeather);
+        btnWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initEXIFButton() {
+        Log.d(TAG, "initEXIFButton: called");
+        Button btnEXIF = findViewById(R.id.btnEXIF);
+        btnEXIF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EXIFActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initCelestialButton() {
+        Log.d(TAG, "initCelestialButton: called");
+        Button btnCelestial = findViewById(R.id.btnCelestial);
+        btnCelestial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CelestialActivity.class);
                 startActivity(intent);
             }
         });
