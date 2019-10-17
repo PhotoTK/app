@@ -15,7 +15,7 @@ public class SolarEclipse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.solar_eclipse);
-        check = (CheckBox) findViewById(R.id.btnone);
+        check = findViewById(R.id.checkBox);
         sp = getSharedPreferences("isChecked", 0);
         boolean result = sp.getBoolean("choose", false);
         check.setChecked(result);
@@ -25,7 +25,7 @@ public class SolarEclipse extends AppCompatActivity {
                 boolean ischecked = check.isChecked();
                 if (isChecked) {
                     check.setText("Selected");
-                    Toast.makeText(SolarEclipse.this, "Selected", 2).show();
+                    Toast.makeText(SolarEclipse.this, "Selected", Toast.LENGTH_SHORT).show();
                     sp = getSharedPreferences("isChecked", 0);
                     SharedPreferences.Editor edit = sp.edit();
                     edit.putBoolean("choose", true);
@@ -33,7 +33,7 @@ public class SolarEclipse extends AppCompatActivity {
                 }
                 else {
                     check.setText("No Selected");
-                    Toast.makeText(SolarEclipse.this, "No Selected", 2).show();
+                    Toast.makeText(SolarEclipse.this, "No Selected", Toast.LENGTH_SHORT).show();
                     sp = getSharedPreferences("isChecked", 0);
                     SharedPreferences.Editor edit = sp.edit();
                     edit.putBoolean("choose", false);
