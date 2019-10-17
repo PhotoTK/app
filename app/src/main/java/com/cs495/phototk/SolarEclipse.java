@@ -15,7 +15,7 @@ public class SolarEclipse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.solar_eclipse);
-        check = findViewById(R.id.checkBox);
+        check = findViewById(R.id.btnone);
         sp = getSharedPreferences("isChecked", 0);
         boolean result = sp.getBoolean("choose", false);
         check.setChecked(result);
