@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initCalculatorButton() {
-        Log.d(TAG, "initClestialButton: called");
+        Log.d(TAG, "initCalculatorButton: called");
         Button btnCalculator = findViewById(R.id.btnCalculator);
         btnCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
