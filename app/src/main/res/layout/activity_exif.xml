@@ -19,11 +19,12 @@
         android:layout_height="wrap_content"
         android:hint="input EXIF info" />
 
-    <EditText
-        android:id="@+id/exif_tag"
+    <Spinner
+        android:id="@+id/Tag_Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input EXIF tag that you want to change" />
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"/>
 
     <Button
         android:id="@+id/btn_EXIF_edit"

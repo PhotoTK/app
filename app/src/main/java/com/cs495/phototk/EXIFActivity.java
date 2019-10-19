@@ -1,5 +1,6 @@
 package com.cs495.phototk;
 //API24
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,9 +10,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +23,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EXIFActivity extends AppCompatActivity{
-    private boolean encode;
+    private Spinner spinner;
+    private static final String[] paths = {"item1", "item 2", "item 3"};
     private static final int RQS_OPEN_IMAGE = 1;
     Button buttonOpen;
     Button buttonEdit;
@@ -123,9 +129,18 @@ public class EXIFActivity extends AppCompatActivity{
                         exifInterface.getAttribute(ExifInterface.TAG_GPS_LONGITUDE);
                 exif += "\n TAG_GPS_LONGITUDE_REF: " +
                         exifInterface.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF);
-                exif += "\n TAG_GPS_PROCESSING_METHOD: " +
-                        exifInterface.getAttribute(ExifInterface.TAG_GPS_PROCESSING_METHOD);
-
+                exif += "\n TAG_GPS_ALTITUDE: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_GPS_ALTITUDE);
+                exif += "\n TAG_GPS_ALTITUDE: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF);
+                exif += "\n TAG_USER_COMMENT: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_USER_COMMENT);
+                exif += "\n TAG_COPYRIGHT: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_COPYRIGHT);
+                exif += "\n TAG_ARTIST: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_ARTIST);
+                exif += "\n TAG_COPYRIGHT: " +
+                        exifInterface.getAttribute(ExifInterface.TAG_COPYRIGHT);
                 parcelFileDescriptor.close();
 
                 Toast.makeText(getApplicationContext(),
@@ -155,32 +170,51 @@ public class EXIFActivity extends AppCompatActivity{
 
     void setExifInfo(Uri photoUri, String s){
         if(photoUri != null){
-
             ParcelFileDescriptor parcelFileDescriptor = null;
-
             try {
                 parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "rw");
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                 exifInterface = new ExifInterface(fileDescriptor);
-                exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
-                /*exifInterface.setAttribute(ExifInterface.TAG_MODEL, s);
-                exifInterface.setAttribute(ExifInterface.TAG_DATETIME, s);
-                exifInterface.setAttribute(ExifInterface.TAG_ARTIST, s);
-                exifInterface.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
-                exifInterface.setAttribute(ExifInterface.TAG_EXIF_VERSION, s);
-                exifInterface.setAttribute(ExifInterface.TAG_FLASH, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, s);
-                exifInterface.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, s);
-                exifInterface.setAttribute(ExifInterface.TAG_USER_COMMENT, s);*/
+                String tag_choice = new String (String.valueOf(spinner.getSelectedItem()));
+                if(tag_choice.equals("TAG_MAKE")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
+                }
+                else if(tag_choice.equals("TAG_MODEL")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_MODEL, s);
+                }
+                else if(tag_choice.equals("TAG_USER_COMMENT")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_USER_COMMENT, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_LATITUDE_REF")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_LATITUDE")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_LONGITUDE_REF")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_LONGITUDE")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_DATESTAMP")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_ALTITUDE_REF")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
+                }
+                else if(tag_choice.equals("TAG_GPS_ALTITUDE")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
+                }
+                else if(tag_choice.equals("TAG_COPYRIGHT")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
+                }
+                else if(tag_choice.equals("TAG_ARTIST")) {
+                    exifInterface.setAttribute(ExifInterface.TAG_ARTIST, s);
+                }
+                else{
+                    exifInterface.setAttribute(ExifInterface.TAG_DATETIME, s);
+                }
                 try {
                     exifInterface.saveAttributes();
                 } catch (IOException e) {
@@ -197,9 +231,6 @@ public class EXIFActivity extends AppCompatActivity{
                         "Something wrong:\n" + e.toString(),
                         Toast.LENGTH_LONG).show();
             }
-
-            strPhotoPath = photoUri.getPath();
-
         }else{
             Toast.makeText(getApplicationContext(),
                     "photoUri == null",
@@ -207,18 +238,51 @@ public class EXIFActivity extends AppCompatActivity{
         }
     }
 
+    public void addItemsOnSpinner() {
+
+        spinner = (Spinner) findViewById(R.id.Tag_Spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("TAG_USER_COMMENT");
+        list.add("TAG_MAKE");
+        list.add("TAG_MODEL");
+        list.add("TAG_DATETIME");
+        list.add("TAG_ARTIST");
+        list.add("TAG_COPYRIGHT");
+        list.add("TAG_EXIF_VERSION");
+        list.add("TAG_GPS_ALTITUDE");
+        list.add("TAG_GPS_ALTITUDE_REF");
+        list.add("TAG_GPS_DATESTAMP");
+        list.add("TAG_GPS_LONGITUDE");
+        list.add("TAG_GPS_LONGITUDE_REF");
+        list.add("TAG_GPS_DEST_LONGITUDE");
+        list.add("TAG_GPS_DEST_LONGITUDE_REF");
+        list.add("TAG_GPS_LATITUDE");
+        list.add("TAG_GPS_LATITUDE_REF");
+        list.add("TAG_GPS_DEST_LATITUDE");
+        list.add("TAG_GPS_DEST_LONGITUDE_REF");
+        list.add("");
+        list.add("");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exif);
 
+        addItemsOnSpinner();
+
         buttonOpen = (Button) findViewById(R.id.opendocument);
         buttonOpen.setOnClickListener(buttonOpenOnClickListener);
 
-        textEdit = (EditText) findViewById(R.id.editdocument);
-
         buttonEdit = (Button) findViewById(R.id.btn_EXIF_edit);
         buttonEdit.setOnClickListener(buttonEditOnClickListener);
+
+        textEdit = (EditText) findViewById(R.id.editdocument);
 
         textUri = (TextView) findViewById(R.id.texturi);
         textUri.setOnClickListener(textUriOnClickListener);
