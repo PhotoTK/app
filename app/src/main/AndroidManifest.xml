@@ -22,17 +22,17 @@
             android:name=".Menu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CelestialActivity" />
-        <activity android:name=".CalculatorActivity" />
-        <activity android:name=".ManagementActivity" />
-        <activity android:name=".SolarEclipse" />
-        <activity android:name=".MoonEclipse" />
-        <activity android:name=".MeteorShower" />
+        <activity android:name=".ui.celestial.CelestialActivity" />
+        <activity android:name=".ui.calculator.CalculatorActivity" />
+        <activity android:name=".ui.management.ManagementActivity" />
+        <activity android:name=".ui.celestial.SolarEclipse" />
+        <activity android:name=".ui.celestial.MoonEclipse" />
+        <activity android:name=".ui.celestial.MeteorShower" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".WeatherActivity" />
-        <activity android:name=".EXIFActivity" />
+        <activity android:name=".ui.weather.WeatherActivity" />
+        <activity android:name=".ui.exif.EXIFActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -65,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".ui.map.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".MainActivity">
             <intent-filter>

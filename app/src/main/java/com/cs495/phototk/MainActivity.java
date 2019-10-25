@@ -10,7 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
+import com.cs495.phototk.ui.celestial.CelestialActivity;
+import com.cs495.phototk.ui.exif.EXIFActivity;
 import com.cs495.phototk.ui.login.LoginActivity;
+import com.cs495.phototk.ui.management.ManagementActivity;
+import com.cs495.phototk.ui.map.MapsActivity;
+import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 

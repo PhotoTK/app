@@ -1,8 +1,10 @@
-package com.cs495.phototk;
+package com.cs495.phototk.ui.calculator;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cs495.phototk.R;
 
 public class CalculatorActivity extends AppCompatActivity {
 

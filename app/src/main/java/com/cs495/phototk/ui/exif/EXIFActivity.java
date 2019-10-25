@@ -1,4 +1,4 @@
-package com.cs495.phototk;
+package com.cs495.phototk.ui.exif;
 //API24
 
 import android.app.Activity;
@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cs495.phototk.R;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;

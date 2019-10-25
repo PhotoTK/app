@@ -1,4 +1,4 @@
-package com.cs495.phototk;
+package com.cs495.phototk.ui.celestial;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cs495.phototk.R;
 
 public class CelestialActivity extends AppCompatActivity {
     private Button btnSolar_Eclipse;
