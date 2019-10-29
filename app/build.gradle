@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.cs495.phototk"
         minSdkVersion 24
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -37,8 +37,8 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:design:26.4.0'
-    implementation 'com.android.support:appcompat-v7:26.4.0'
+    implementation 'com.android.support:design:28.2.1'
+    implementation 'com.android.support:appcompat-v7:28.2.1'
     implementation 'com.google.android.material:material:1.0.0'
 }
 
