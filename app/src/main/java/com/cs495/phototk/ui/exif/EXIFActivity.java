@@ -9,6 +9,8 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,9 +20,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cs495.phototk.BottomNavigationViewHelper;
+import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
+import com.cs495.phototk.ui.celestial.CelestialActivity;
+import com.cs495.phototk.ui.map.MapsActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -272,7 +282,7 @@ public class EXIFActivity extends AppCompatActivity{
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exif);
 
@@ -291,7 +301,46 @@ public class EXIFActivity extends AppCompatActivity{
 
         imageView = (ImageView)findViewById(R.id.image);
         imageView.setOnClickListener(imageOnClickListener);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        Intent intent0 = new Intent(EXIFActivity.this, MainActivity.class);
+                        startActivity(intent0);
+                        break;
+
+                    case R.id.ic_exif:
+
+                        break;
+
+                    case R.id.ic_calculator:
+                        Intent intent2 = new Intent(EXIFActivity.this, CalculatorActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_celestial:
+                        Intent intent3 = new Intent(EXIFActivity.this, CelestialActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_map:
+                        Intent intent4 = new Intent(EXIFActivity.this, MapsActivity.class);
+                        startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
     }
+
 
     protected void onActivityResult(int requestCode,
                                     int resultCode, Intent data) {

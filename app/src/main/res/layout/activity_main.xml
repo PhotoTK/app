@@ -1,52 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:baselineAligned="false"
-    android:background="@drawable/backgroundcolor"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnLogin"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Login" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnMap"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Map" />
+        <RelativeLayout
+            android:id="@+id/relLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar">
 
-    <Button
-        android:id="@+id/btnManagement"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Camera Gear Management" />
+            <include layout="@layout/activity_main_center" />
 
-    <Button
-        android:id="@+id/btnCalculator"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Calculator" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnWeather"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Weather" />
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true">
 
-    <Button
-        android:id="@+id/btnEXIF"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="EXIF" />
+            <include layout="@layout/layout_bottom_navigation_view" />
 
-    <Button
-        android:id="@+id/btnCelestial"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:text="Celestial Events" />
+        </RelativeLayout>
 
-</TableLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

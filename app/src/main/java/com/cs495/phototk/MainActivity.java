@@ -4,36 +4,73 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
-import com.cs495.phototk.ui.login.LoginActivity;
-import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
-import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+        private static final String TAG = "MainActivity";
+        private static final int ERROR_DIALOG_REQUEST = 9001;
+        private SectionsPageAdapter mSectionsPageAdapter;
 
-    // Constants
-    private static final String TAG = "MainActivity";
-    private static final int ERROR_DIALOG_REQUEST = 9001;
+        private ViewPager mViewPager;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: called");
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (isServicesOK()) {
-            init();
-        }
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_exif:
+                        Intent intent0 = new Intent(MainActivity.this, EXIFActivity.class);
+                        startActivity(intent0);
+                        break;
+
+                    case R.id.ic_home:
+
+                        break;
+
+                    case R.id.ic_calculator:
+                        Intent intent2 = new Intent(MainActivity.this, CalculatorActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_celestial:
+                        Intent intent3 = new Intent(MainActivity.this, CelestialActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_map:
+                        Intent intent4 = new Intent(MainActivity.this, MapsActivity.class);
+                        startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     private Boolean isServicesOK() {
@@ -56,98 +93,4 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    private void init() {
-        Log.d(TAG, "init: called");
-        initLoginButton();
-        initMapButton();
-        initManagementButton();
-        initCalculatorButton();
-        initWeatherButton();
-        initEXIFButton();
-        initCelestialButton();
-    }
-
-    private void initLoginButton() {
-        Log.d(TAG, "initLoginButton: called");
-        Button btnLogin = findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initMapButton() {
-        Log.d(TAG, "initMapButton: called");
-        Button btnMap = findViewById(R.id.btnMap);
-        btnMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initManagementButton() {
-        Log.d(TAG, "initManagementButton: called");
-        Button btnManagement = findViewById(R.id.btnManagement);
-        btnManagement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ManagementActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initCalculatorButton() {
-        Log.d(TAG, "initCalculatorButton: called");
-        Button btnCalculator = findViewById(R.id.btnCalculator);
-        btnCalculator.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initWeatherButton() {
-        Log.d(TAG, "initWeatherButton: called");
-        Button btnWeather = findViewById(R.id.btnWeather);
-        btnWeather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initEXIFButton() {
-        Log.d(TAG, "initEXIFButton: called");
-        Button btnEXIF = findViewById(R.id.btnEXIF);
-        btnEXIF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EXIFActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initCelestialButton() {
-        Log.d(TAG, "initCelestialButton: called");
-        Button btnCelestial = findViewById(R.id.btnCelestial);
-        btnCelestial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CelestialActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
 }

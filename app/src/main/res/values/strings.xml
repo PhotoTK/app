@@ -21,11 +21,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-
+    <string name="ic_home">Home</string>
+    <string name="ic_weather">Weather</string>
+    <string name="ic_calculator">Calculator</string>
+    <string name="ic_celestial">Celestial</string>
+    <string name="ic_exif">Exif</string>
+    <string name="ic_login">Login</string>
+    <string name="ic_management">Management</string>
+    <string name="ic_map">Map</string>
 </resources>

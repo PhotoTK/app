@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.exif.EXIFActivity">
+
+        <Button
+            android:id="@+id/opendocument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open an Image" />
+
+        <EditText
+            android:id="@+id/editdocument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input EXIF info" />
+
+        <Spinner
+            android:id="@+id/Tag_Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"/>
+
+        <Button
+            android:id="@+id/btn_EXIF_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="set the EXIF info" />
+        <TextView
+            android:id="@+id/texturi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </LinearLayout>
+</merge>
