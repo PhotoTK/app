@@ -8,16 +8,15 @@
         android:icon="@drawable/ic_menu_home"
         android:title="@string/ic_home"
         />
-
-        <item
-            android:id="@+id/ic_exif"
-            android:icon="@drawable/ic_menu_exif"
-            android:title="@string/ic_exif"
-            />
         <item
             android:id="@+id/ic_map"
             android:icon="@drawable/ic_menu_map"
             android:title="@string/ic_map"
+            />
+        <item
+            android:id="@+id/ic_exif"
+            android:icon="@drawable/ic_menu_exif"
+            android:title="@string/ic_exif"
             />
         <item
             android:id="@+id/ic_celestial"

@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
@@ -24,9 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
         private static final String TAG = "MainActivity";
         private static final int ERROR_DIALOG_REQUEST = 9001;
-        private SectionsPageAdapter mSectionsPageAdapter;
-
-        private ViewPager mViewPager;
 
 
     @Override
@@ -35,22 +31,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.ic_exif:
-                        Intent intent0 = new Intent(MainActivity.this, EXIFActivity.class);
-                        startActivity(intent0);
-                        break;
-
                     case R.id.ic_home:
 
+                        break;
+
+                    case R.id.ic_exif:
+                        Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
+                        startActivity(intent1);
                         break;
 
                     case R.id.ic_calculator:
@@ -64,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.ic_map:
-                        Intent intent4 = new Intent(MainActivity.this, MapsActivity.class);
-                        startActivity(intent4);
+                        if(isServicesOK()) {
+                            Intent intent4 = new Intent(MainActivity.this, MapsActivity.class);
+                            startActivity(intent4);
+                        }
                         break;
                 }
                 return false;

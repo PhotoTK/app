@@ -24,7 +24,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cs495.phototk.BottomNavigationViewHelper;
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
 import com.cs495.phototk.ui.calculator.CalculatorActivity;
@@ -40,7 +39,6 @@ import java.util.List;
 
 public class EXIFActivity extends AppCompatActivity{
     private Spinner spinner;
-    private static final String[] paths = {"item1", "item 2", "item 3"};
     private static final int RQS_OPEN_IMAGE = 1;
     Button buttonOpen;
     Button buttonEdit;
@@ -49,7 +47,6 @@ public class EXIFActivity extends AppCompatActivity{
     ImageView imageView;
     Uri targetUri = null;
     String strPhotoPath;
-    ExifInterface exif;
     ExifInterface exifInterface;
 
     View.OnClickListener buttonOpenOnClickListener =
@@ -303,9 +300,8 @@ public class EXIFActivity extends AppCompatActivity{
         imageView.setOnClickListener(imageOnClickListener);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
