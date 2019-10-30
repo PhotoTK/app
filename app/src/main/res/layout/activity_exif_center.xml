@@ -9,6 +9,7 @@
         tools:context=".ui.exif.EXIFActivity">
 
         <Button
+            android:textColor="@color/colorText"
             android:id="@+id/opendocument"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
 
         <EditText
             android:id="@+id/editdocument"
+            android:textColor="@color/colorText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="input EXIF info" />
@@ -28,12 +30,14 @@
             android:spinnerMode="dropdown"/>
 
         <Button
+            android:textColor="@color/colorText"
             android:id="@+id/btn_EXIF_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="set the EXIF info" />
         <TextView
             android:id="@+id/texturi"
+            android:textColor="@color/colorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

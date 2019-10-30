@@ -4,18 +4,21 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:textColor="@color/colorText"
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is home screen" />
 
     <Button
+        android:textColor="@color/colorText"
         android:id="@+id/light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Light" />
 
     <Button
+        android:textColor="@color/colorText"
         android:id="@+id/dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
