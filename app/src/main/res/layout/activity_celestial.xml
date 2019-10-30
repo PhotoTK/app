@@ -1,39 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_celestial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.celestial.CelestialActivity">
 
-    <Button
-        android:id="@+id/btnSolar_Eclipse"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:background="@drawable/star"
-        android:text="Solar_Eclipse"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnMoon_Eclipse"
-        android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:background="@drawable/star"
-        android:text="Moon_Eclipse"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="211dp" />
+        <RelativeLayout
+            android:id="@+id/celestial_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar">
 
-    <Button
-        android:id="@+id/btnMeteor_Shower"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/star"
-        android:text="Meteor_Shower"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="410dp" />
+            <include layout="@layout/activity_celestial_center" />
 
+        </RelativeLayout>
 
-</LinearLayout>
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true">
+
+            <include layout="@layout/layout_bottom_navigation_view" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
