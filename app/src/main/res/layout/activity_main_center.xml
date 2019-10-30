@@ -7,5 +7,17 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is home schreen" />
+        android:text="This is home screen" />
+
+    <Button
+        android:id="@+id/light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Light" />
+
+    <Button
+        android:id="@+id/dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark" />
 </LinearLayout>

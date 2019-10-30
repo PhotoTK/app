@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
@@ -22,7 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
         private static final String TAG = "MainActivity";
         private static final int ERROR_DIALOG_REQUEST = 9001;
-
+        Button dark, light;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +64,25 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+            }
+        });
+
+        dark = findViewById(R.id.dark);
+        light = findViewById(R.id.light);
+        dark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
+        light.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
             }
         });
     }
