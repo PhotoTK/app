@@ -19,7 +19,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
-import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -80,11 +79,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(MapsActivity.this, EXIFActivity.class);
                         startActivity(intent1);
-                        break;
-
-                    case R.id.ic_calculator:
-                        Intent intent2 = new Intent(MapsActivity.this, CalculatorActivity.class);
-                        startActivity(intent2);
                         break;
 
                     case R.id.ic_celestial:

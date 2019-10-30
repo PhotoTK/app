@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
@@ -47,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
                         startActivity(intent1);
-                        break;
-
-                    case R.id.ic_calculator:
-                        Intent intent2 = new Intent(MainActivity.this, CalculatorActivity.class);
-                        startActivity(intent2);
                         break;
 
                     case R.id.ic_celestial:

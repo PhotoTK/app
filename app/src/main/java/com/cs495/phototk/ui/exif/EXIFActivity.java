@@ -27,7 +27,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
-import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -317,11 +316,6 @@ public class EXIFActivity extends AppCompatActivity{
 
                     case R.id.ic_exif:
 
-                        break;
-
-                    case R.id.ic_calculator:
-                        Intent intent2 = new Intent(EXIFActivity.this, CalculatorActivity.class);
-                        startActivity(intent2);
                         break;
 
                     case R.id.ic_celestial:
