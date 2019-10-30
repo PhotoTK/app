@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,7 +17,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
+import com.cs495.phototk.ui.celestial.CelestialActivity;
+import com.cs495.phototk.ui.exif.EXIFActivity;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -34,6 +40,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -56,6 +63,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        Intent intent0 = new Intent(MapsActivity.this, MainActivity.class);
+                        startActivity(intent0);
+                        break;
+
+                    case R.id.ic_exif:
+                        Intent intent1 = new Intent(MapsActivity.this, EXIFActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_calculator:
+                        Intent intent2 = new Intent(MapsActivity.this, CalculatorActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_celestial:
+                        Intent intent3 = new Intent(MapsActivity.this, CelestialActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_map:
+
+                        break;
+                }
+                return false;
+            }
+        });
         getLocationPermissions();
     }
 

@@ -9,6 +9,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +49,7 @@ public class EXIFActivity extends AppCompatActivity{
     Uri targetUri = null;
     String strPhotoPath;
     ExifInterface exifInterface;
-
+    private static final String TAG = "EXIFActivity";
     View.OnClickListener buttonOpenOnClickListener =
             new View.OnClickListener() {
                 @Override
@@ -280,6 +281,7 @@ public class EXIFActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exif);
 
