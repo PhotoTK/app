@@ -24,7 +24,8 @@ import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+/*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_celestial_center.xml instead of changing activity_celestial.xml
+ */
 public class CelestialActivity extends AppCompatActivity {
     private Button btnSolar_Eclipse;
     private Button btnMoon_Eclipse;

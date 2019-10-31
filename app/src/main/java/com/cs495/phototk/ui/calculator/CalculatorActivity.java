@@ -22,6 +22,11 @@ import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+/*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_calculator_center.xml instead of changing activity_calculator.xml
+ */
+
+
+
 
 public class CalculatorActivity extends AppCompatActivity {
     private static final String TAG = "CalculatorActivity";
