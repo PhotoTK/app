@@ -7,19 +7,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
-import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
-import com.cs495.phototk.ui.login.LoginActivity;
-import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
 import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
@@ -29,46 +25,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
         private static final String TAG = "MainActivity";
         private static final int ERROR_DIALOG_REQUEST = 9001;
-        Button dark, light;
+        ImageView imageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        BottomNavigationView topNavigationView = (BottomNavigationView) findViewById(R.id.topNavView_Bar);
-        int size = topNavigationView.getMenu().size();
-        for (int i = 0; i < size; i++) {
-            topNavigationView.getMenu().getItem(i).setCheckable(false);
-        }
-        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.ic_calculator:
-                        Intent intent1 = new Intent(MainActivity.this, CalculatorActivity.class);
-                        startActivity(intent1);
-                        break;
-
-                    case R.id.ic_login:
-                        Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivity(intent2);
-                        break;
-
-                    case R.id.ic_management:
-                        Intent intent3 = new Intent(MainActivity.this, ManagementActivity.class);
-                        startActivity(intent3);
-                        break;
-
-                    case R.id.ic_weather:
-                            Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
-                            startActivity(intent4);
-                        break;
-                }
-                return false;
-            }
-        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
@@ -104,26 +67,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        dark = findViewById(R.id.dark);
-        light = findViewById(R.id.light);
-        dark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
-            }
-        });
-        light.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
-            }
-        });
+        imageView = (ImageView) findViewById(R.id.home_weather);
+        imageView.setOnClickListener(imageOnClickListener);
     }
+    View.OnClickListener imageOnClickListener =
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
+                    startActivity(intent4);                }
+            };
 
     private Boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
