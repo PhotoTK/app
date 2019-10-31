@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -15,10 +14,7 @@ import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
-import com.cs495.phototk.ui.login.LoginActivity;
-import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
-import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,36 +34,6 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-        BottomNavigationView topNavigationView = (BottomNavigationView) findViewById(R.id.topNavView_Bar);
-        Menu menu = topNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);
-        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.ic_calculator:
-
-                        break;
-
-                    case R.id.ic_login:
-                        Intent intent2 = new Intent(CalculatorActivity.this, LoginActivity.class);
-                        startActivity(intent2);
-                        break;
-
-                    case R.id.ic_management:
-                        Intent intent3 = new Intent(CalculatorActivity.this, ManagementActivity.class);
-                        startActivity(intent3);
-                        break;
-
-                    case R.id.ic_weather:
-                        Intent intent4 = new Intent(CalculatorActivity.this, WeatherActivity.class);
-                        startActivity(intent4);
-                        break;
-                }
-                return false;
-            }
-        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         int size = bottomNavigationView.getMenu().size();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,21 +14,10 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/topBar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="false">
-
-            <include layout="@layout/layout_top_navigation_view" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/exif_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomBar"
-            android:layout_below="@+id/topBar">
+            android:layout_above="@+id/bottomBar">
 
             <include layout="@layout/activity_exif_center" />
 
@@ -44,5 +34,6 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
