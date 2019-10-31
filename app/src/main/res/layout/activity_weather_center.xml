@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.weather.WeatherActivity">
+    tools:context=".ui.weather.WeatherActivity"
+    android:background="@drawable/home_background">
 
-    <TextView
+    <RelativeLayout
+        android:layout_marginTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weather"
-        android:textSize="25dp"
-        android:gravity="center"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:text="Weather"
+            android:textSize="22sp"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Coming Soon!"
-        android:textSize="15dp"
-        android:gravity="center"/>
+    </RelativeLayout>
 
-</LinearLayout>
+
+</ScrollView>
