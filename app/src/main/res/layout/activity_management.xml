@@ -5,18 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@color/colorBackground"
+    tools:context=".ui.management.ManagementActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="false">
+
+            <include layout="@layout/layout_top_navigation_view" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/main_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomBar">
-
+            android:layout_above="@+id/bottomBar"
+            android:layout_below="@+id/topBar">
             <include layout="@layout/activity_management_center" />
 
         </RelativeLayout>
@@ -24,7 +35,7 @@
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true">
 
             <include layout="@layout/layout_bottom_navigation_view" />

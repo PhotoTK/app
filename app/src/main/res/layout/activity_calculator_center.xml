@@ -3,17 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:textColor="@color/colorText"
-        android:id="@+id/light"
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Light" />
-
-    <Button
-        android:textColor="@color/colorText"
-        android:id="@+id/dark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dark" />
+        android:text="This is Calculator" />
 </LinearLayout>

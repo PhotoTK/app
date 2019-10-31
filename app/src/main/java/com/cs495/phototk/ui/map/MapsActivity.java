@@ -19,8 +19,12 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
+import com.cs495.phototk.ui.login.LoginActivity;
+import com.cs495.phototk.ui.management.ManagementActivity;
+import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -62,11 +66,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        BottomNavigationView topNavigationView = (BottomNavigationView) findViewById(R.id.topNavView_Bar);
+        int size = topNavigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            topNavigationView.getMenu().getItem(i).setCheckable(false);
+        }
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_calculator:
+                        Intent intent1 = new Intent(MapsActivity.this, CalculatorActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_login:
+                        Intent intent2 = new Intent(MapsActivity.this, LoginActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_management:
+                        Intent intent3 = new Intent(MapsActivity.this, ManagementActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_weather:
+                        Intent intent4 = new Intent(MapsActivity.this, WeatherActivity.class);
+                        startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

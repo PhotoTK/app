@@ -2,10 +2,10 @@ package com.cs495.phototk.ui.exif;
 //API24
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
@@ -24,11 +24,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.exifinterface.media.ExifInterface;
 
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
+import com.cs495.phototk.ui.login.LoginActivity;
+import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
+import com.cs495.phototk.ui.weather.WeatherActivity;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.FileDescriptor;
@@ -37,7 +44,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EXIFActivity extends AppCompatActivity{
+public class EXIFActivity extends AppCompatActivity {
     private Spinner spinner;
     private static final int RQS_OPEN_IMAGE = 1;
     Button buttonOpen;
@@ -49,6 +56,7 @@ public class EXIFActivity extends AppCompatActivity{
     String strPhotoPath;
     ExifInterface exifInterface;
     private static final String TAG = "EXIFActivity";
+    private static final int ERROR_DIALOG_REQUEST = 9001;
     View.OnClickListener buttonOpenOnClickListener =
             new View.OnClickListener() {
                 @Override
@@ -61,20 +69,20 @@ public class EXIFActivity extends AppCompatActivity{
                 }
             };
 
-   View.OnClickListener buttonEditOnClickListener =
-            new View.OnClickListener(){
+    View.OnClickListener buttonEditOnClickListener =
+            new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String content = textEdit.getText().toString().trim();
-                    setExifInfo(targetUri,content);
+                    setExifInfo(targetUri, content);
                 }
             };
 
     View.OnClickListener textUriOnClickListener =
-            new View.OnClickListener(){
+            new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (targetUri != null){
+                    if (targetUri != null) {
                         Bitmap bm;
                         try {
                             bm = BitmapFactory.decodeStream(
@@ -89,15 +97,15 @@ public class EXIFActivity extends AppCompatActivity{
             };
 
     View.OnClickListener imageOnClickListener =
-            new View.OnClickListener(){
+            new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     showExif(targetUri);
                 }
             };
 
-    void showExif(Uri photoUri){
-        if(photoUri != null){
+    void showExif(Uri photoUri) {
+        if (photoUri != null) {
 
             ParcelFileDescriptor parcelFileDescriptor = null;
 
@@ -106,7 +114,7 @@ public class EXIFActivity extends AppCompatActivity{
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
 
                 exifInterface = new ExifInterface(fileDescriptor);
-                String exif="Exif: " + fileDescriptor.toString();
+                String exif = "Exif: " + fileDescriptor.toString();
                 exif += "\nIMAGE_LENGTH: " +
                         exifInterface.getAttribute(ExifInterface.TAG_IMAGE_LENGTH);
                 exif += "\nIMAGE_WIDTH: " +
@@ -170,58 +178,46 @@ public class EXIFActivity extends AppCompatActivity{
 
             strPhotoPath = photoUri.getPath();
 
-        }else{
+        } else {
             Toast.makeText(getApplicationContext(),
                     "photoUri == null",
                     Toast.LENGTH_LONG).show();
         }
     }
 
-    void setExifInfo(Uri photoUri, String s){
-        if(photoUri != null){
+    void setExifInfo(Uri photoUri, String s) {
+        if (photoUri != null) {
             ParcelFileDescriptor parcelFileDescriptor = null;
             try {
                 parcelFileDescriptor = getContentResolver().openFileDescriptor(photoUri, "rw");
                 FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                 exifInterface = new ExifInterface(fileDescriptor);
-                String tag_choice = new String (String.valueOf(spinner.getSelectedItem()));
-                if(tag_choice.equals("TAG_MAKE")) {
+                String tag_choice = new String(String.valueOf(spinner.getSelectedItem()));
+                if (tag_choice.equals("TAG_MAKE")) {
                     exifInterface.setAttribute(ExifInterface.TAG_MAKE, s);
-                }
-                else if(tag_choice.equals("TAG_MODEL")) {
+                } else if (tag_choice.equals("TAG_MODEL")) {
                     exifInterface.setAttribute(ExifInterface.TAG_MODEL, s);
-                }
-                else if(tag_choice.equals("TAG_USER_COMMENT")) {
+                } else if (tag_choice.equals("TAG_USER_COMMENT")) {
                     exifInterface.setAttribute(ExifInterface.TAG_USER_COMMENT, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_LATITUDE_REF")) {
+                } else if (tag_choice.equals("TAG_GPS_LATITUDE_REF")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_LATITUDE")) {
+                } else if (tag_choice.equals("TAG_GPS_LATITUDE")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_LATITUDE, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_LONGITUDE_REF")) {
+                } else if (tag_choice.equals("TAG_GPS_LONGITUDE_REF")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_LONGITUDE")) {
+                } else if (tag_choice.equals("TAG_GPS_LONGITUDE")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_DATESTAMP")) {
+                } else if (tag_choice.equals("TAG_GPS_DATESTAMP")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_ALTITUDE_REF")) {
+                } else if (tag_choice.equals("TAG_GPS_ALTITUDE_REF")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, s);
-                }
-                else if(tag_choice.equals("TAG_GPS_ALTITUDE")) {
+                } else if (tag_choice.equals("TAG_GPS_ALTITUDE")) {
                     exifInterface.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, s);
-                }
-                else if(tag_choice.equals("TAG_COPYRIGHT")) {
+                } else if (tag_choice.equals("TAG_COPYRIGHT")) {
                     exifInterface.setAttribute(ExifInterface.TAG_COPYRIGHT, s);
-                }
-                else if(tag_choice.equals("TAG_ARTIST")) {
+                } else if (tag_choice.equals("TAG_ARTIST")) {
                     exifInterface.setAttribute(ExifInterface.TAG_ARTIST, s);
-                }
-                else{
+                } else {
                     exifInterface.setAttribute(ExifInterface.TAG_DATETIME, s);
                 }
                 try {
@@ -240,7 +236,7 @@ public class EXIFActivity extends AppCompatActivity{
                         "Something wrong:\n" + e.toString(),
                         Toast.LENGTH_LONG).show();
             }
-        }else{
+        } else {
             Toast.makeText(getApplicationContext(),
                     "photoUri == null",
                     Toast.LENGTH_LONG).show();
@@ -297,8 +293,42 @@ public class EXIFActivity extends AppCompatActivity{
         textUri = (TextView) findViewById(R.id.texturi);
         textUri.setOnClickListener(textUriOnClickListener);
 
-        imageView = (ImageView)findViewById(R.id.image);
+        imageView = (ImageView) findViewById(R.id.image);
         imageView.setOnClickListener(imageOnClickListener);
+
+        BottomNavigationView topNavigationView = (BottomNavigationView) findViewById(R.id.topNavView_Bar);
+        int size = topNavigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            topNavigationView.getMenu().getItem(i).setCheckable(false);
+        }
+
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic_calculator:
+                        Intent intent1 = new Intent(EXIFActivity.this, CalculatorActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_login:
+                        Intent intent2 = new Intent(EXIFActivity.this, LoginActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_management:
+                        Intent intent3 = new Intent(EXIFActivity.this, ManagementActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_weather:
+                            Intent intent4 = new Intent(EXIFActivity.this, WeatherActivity.class);
+                            startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
@@ -308,7 +338,7 @@ public class EXIFActivity extends AppCompatActivity{
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.ic_home:
                         Intent intent0 = new Intent(EXIFActivity.this, MainActivity.class);
                         startActivity(intent0);
@@ -324,8 +354,10 @@ public class EXIFActivity extends AppCompatActivity{
                         break;
 
                     case R.id.ic_map:
-                        Intent intent4 = new Intent(EXIFActivity.this, MapsActivity.class);
-                        startActivity(intent4);
+                        if(isServicesOK()) {
+                            Intent intent4 = new Intent(EXIFActivity.this, MapsActivity.class);
+                            startActivity(intent4);
+                        }
                         break;
                 }
                 return false;
@@ -348,5 +380,23 @@ public class EXIFActivity extends AppCompatActivity{
             }
         }
 
+    }
+
+    private Boolean isServicesOK() {
+        Log.d(TAG, "isServicesOK: checking google services version");
+        int isAvailable = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(EXIFActivity.this);
+        if (isAvailable == ConnectionResult.SUCCESS) {
+            // Google Play Services is working
+            Log.d(TAG, "isServicesOK: Google Play Services is working");
+            return true;
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(isAvailable)) {
+            Log.e(TAG, "isServicesOK: A user resolvable error occurred");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(EXIFActivity.this, isAvailable, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        } else {
+            Log.e(TAG, "isServicesOK: requests cannot be made");
+            Toast.makeText(this, "Map requests cannot be made", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

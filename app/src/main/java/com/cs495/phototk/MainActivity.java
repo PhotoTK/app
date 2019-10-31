@@ -15,9 +15,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
+import com.cs495.phototk.ui.login.LoginActivity;
+import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
+import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,6 +36,39 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView topNavigationView = (BottomNavigationView) findViewById(R.id.topNavView_Bar);
+        int size = topNavigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            topNavigationView.getMenu().getItem(i).setCheckable(false);
+        }
+        topNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_calculator:
+                        Intent intent1 = new Intent(MainActivity.this, CalculatorActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_login:
+                        Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_management:
+                        Intent intent3 = new Intent(MainActivity.this, ManagementActivity.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_weather:
+                            Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
+                            startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
@@ -66,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
 
         dark = findViewById(R.id.dark);
         light = findViewById(R.id.light);
