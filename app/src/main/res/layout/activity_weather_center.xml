@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.weather.WeatherActivity"
-    android:background="@drawable/home_background">
+    android:id="@+id/weather_root_view"
+    tools:context=".ui.weather.WeatherActivity">
 
-    <RelativeLayout
-        android:layout_marginTop="32dp"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
-        <TextView
-            android:text="Weather"
-            android:textSize="22sp"
-            android:textColor="@color/colorWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
 
-    </RelativeLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/weather_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            app:tabMode="fixed"
+            app:tabGravity="fill">
+        </com.google.android.material.tabs.TabLayout>
 
+    </com.google.android.material.appbar.AppBarLayout>
 
-</ScrollView>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/weather_view"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </androidx.viewpager.widget.ViewPager>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
