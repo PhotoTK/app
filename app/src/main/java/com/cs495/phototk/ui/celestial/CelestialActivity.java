@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,9 +23,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 /*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_celestial_center.xml instead of changing activity_celestial.xml
  */
 public class CelestialActivity extends AppCompatActivity {
-    private Button btnSolar_Eclipse;
-    private Button btnMoon_Eclipse;
-    private Button btnMeteor_Shower;
+    private ImageView btnSolar_Eclipse;
+    private ImageView btnMoon_Eclipse;
+    private ImageView btnMeteor_Shower;
     private static final String TAG = "CelestialActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
     @Override
@@ -69,7 +69,7 @@ public class CelestialActivity extends AppCompatActivity {
             }
         });
 
-        Button btnSolar_Eclipse = findViewById(R.id.btnSolar_Eclipse);
+        ImageView btnSolar_Eclipse = findViewById(R.id.btnSolar_Eclipse);
         btnSolar_Eclipse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +83,7 @@ public class CelestialActivity extends AppCompatActivity {
 
     private void buttonMoon_Eclipse() {
         Log.d(TAG, "buttonMoon_Eclipse: called");
-        Button btnMoon_Eclipse = findViewById(R.id.btnMoon_Eclipse);
+        ImageView btnMoon_Eclipse = findViewById(R.id.btnMoon_Eclipse);
         btnMoon_Eclipse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +95,7 @@ public class CelestialActivity extends AppCompatActivity {
 
     private void buttonMeteor_shower() {
         Log.d(TAG, "buttonMeteor_shower: called");
-        Button btnMeteor_Shower = findViewById(R.id.btnMeteor_Shower);
+        ImageView btnMeteor_Shower = findViewById(R.id.btnMeteor_Shower);
         btnMeteor_Shower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
