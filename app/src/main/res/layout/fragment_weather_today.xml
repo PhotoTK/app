@@ -41,10 +41,37 @@
                 android:layout_marginLeft="8dp"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:text="62 °F"
+                android:text="62 °K"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+            android:id="@+id/text_temp_f"
+            android:textColor="@color/colorText"
+            android:layout_marginLeft="8dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="62 °F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+            <TextView
+            android:id="@+id/text_temp_c"
+            android:textColor="@color/colorText"
+            android:layout_marginLeft="8dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="62 °C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <TextView

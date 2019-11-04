@@ -32,7 +32,7 @@ import retrofit2.Retrofit;
 public class weather_today extends Fragment {
 
     ImageView image_weather;
-    TextView text_city_name, text_humidity, text_sunrise, text_sunset,text_pressure, text_description, text_cloud, text_wind,text_temp, text_time, text_geo;
+    TextView text_city_name, text_humidity, text_sunrise, text_sunset, text_temp_c, text_temp_f, text_pressure, text_description, text_cloud, text_wind,text_temp, text_time, text_geo;
     LinearLayout weather_panel;
     ProgressBar loading;
 
@@ -71,6 +71,8 @@ public class weather_today extends Fragment {
         text_time = (TextView)itemView.findViewById(R.id.text_time);
         text_geo = (TextView)itemView.findViewById(R.id.text_geo);
         text_city_name = (TextView)itemView.findViewById(R.id.text_city_name);
+        text_temp_f = (TextView)itemView.findViewById(R.id.text_temp_f);
+        text_temp_c = (TextView)itemView.findViewById(R.id.text_temp_c);
 
         weather_panel = (LinearLayout)itemView.findViewById(R.id.weather_panel);
         loading = (ProgressBar)itemView.findViewById(R.id.loading);
@@ -102,6 +104,8 @@ public class weather_today extends Fragment {
                         .append(weatherResult.getName()).toString());
                         text_temp.setText(new StringBuilder(
                                 String.valueOf(weatherResult.getMain().getTemp())).append("°K").toString());
+                        text_temp_f.setText(new StringBuilder(Common.convertKelvinToFahrenheit(weatherResult.getMain().getTemp())).append("°F , "));
+                        text_temp_c.setText(new StringBuilder(Common.convertKelvinToCelsius(weatherResult.getMain().getTemp())).append("°C"));
                         text_time.setText(Common.convertUnixToDate(weatherResult.getDt()));
                         text_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append("hpa").toString());
                         text_humidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append("%").toString());
