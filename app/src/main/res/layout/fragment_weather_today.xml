@@ -106,14 +106,34 @@
 
                 <TextView
                     android:background="@drawable/cell"
-                    android:text="Wind"
+                    android:text="Wind direction"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
                 <TextView
                     android:layout_marginLeft="8dp"
                     android:layout_column="1"
-                    android:id="@+id/text_wind"
+                    android:id="@+id/text_wind_d"
+                    android:background="@drawable/cell"
+                    android:text="Gentle Breeze, 4.7 m/h"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:text="Wind speed"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:id="@+id/text_wind_s"
                     android:background="@drawable/cell"
                     android:text="Gentle Breeze, 4.7 m/h"
                     android:layout_height="wrap_content"

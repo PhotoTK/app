@@ -32,7 +32,7 @@ import retrofit2.Retrofit;
 public class weather_today extends Fragment {
 
     ImageView image_weather;
-    TextView text_city_name, text_humidity, text_sunrise, text_sunset, text_temp_c, text_temp_f, text_pressure, text_description, text_cloud, text_wind,text_temp, text_time, text_geo;
+    TextView text_city_name, text_humidity, text_sunrise, text_sunset, text_temp_c, text_temp_f, text_pressure, text_description, text_cloud, text_wind_d,text_wind_s,text_temp, text_time, text_geo;
     LinearLayout weather_panel;
     ProgressBar loading;
 
@@ -63,7 +63,8 @@ public class weather_today extends Fragment {
         text_humidity = (TextView)itemView.findViewById(R.id.text_humidity);
         text_sunrise = (TextView)itemView.findViewById(R.id.text_sunrise);
         text_sunset = (TextView)itemView.findViewById(R.id.text_sunset);
-        text_wind = (TextView)itemView.findViewById(R.id.text_wind);
+        text_wind_d = (TextView)itemView.findViewById(R.id.text_wind_d);
+        text_wind_s = (TextView)itemView.findViewById(R.id.text_wind_s);
         text_pressure = (TextView)itemView.findViewById(R.id.text_pressure);
         text_description = (TextView)itemView.findViewById(R.id.text_description);
         text_cloud = (TextView)itemView.findViewById(R.id.text_cloud);
@@ -112,9 +113,9 @@ public class weather_today extends Fragment {
                         text_sunrise.setText(Common.convertUnixToHour(weatherResult.getSys().getSunrise()));
                         text_sunset.setText(Common.convertUnixToHour(weatherResult.getSys().getSunset()));
                         text_geo.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
-                        text_wind.setText(new StringBuilder(Common.toTextualDescription(weatherResult.getWind().getDeg())).append(" (").append(weatherResult.getWind().getDeg()).append(")").toString());
+                        text_wind_d.setText(new StringBuilder(Common.toTextualDescription(weatherResult.getWind().getDeg())).append(" (").append(weatherResult.getWind().getDeg()).append(")").toString());
                         text_cloud.setText(new StringBuilder(String.valueOf(weatherResult.getClouds().getAll())).append("%").toString());
-
+                        text_wind_s.setText(new StringBuilder(String.valueOf(weatherResult.getWind().getSpeed())).append(" meter/sec").toString());
                         //display
                         weather_panel.setVisibility(View.VISIBLE);
                         loading.setVisibility(View.GONE);
