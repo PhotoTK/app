@@ -112,7 +112,7 @@ public class weather_today extends Fragment {
                         text_sunrise.setText(Common.convertUnixToHour(weatherResult.getSys().getSunrise()));
                         text_sunset.setText(Common.convertUnixToHour(weatherResult.getSys().getSunset()));
                         text_geo.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
-                        text_wind.setText(new StringBuilder(String.valueOf(weatherResult.getWind().getDeg())).toString());
+                        text_wind.setText(new StringBuilder(Common.toTextualDescription(weatherResult.getWind().getDeg())).append(" (").append(weatherResult.getWind().getDeg()).append(")").toString());
                         text_cloud.setText(new StringBuilder(String.valueOf(weatherResult.getClouds().getAll())).append("%").toString());
 
                         //display
