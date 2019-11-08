@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
-import com.cs495.phototk.ui.login.LoginActivity;
 import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
 import com.cs495.phototk.ui.weather.WeatherActivity;
@@ -78,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_calculator = (ImageView) findViewById(R.id.home_calculator);
         imageView_calculator.setOnClickListener(imageOnClickListener_calculator);
 
-        imageView_login = (ImageView) findViewById(R.id.home_login);
-        imageView_login.setOnClickListener(imageOnClickListener_login);
-
         imageView_map= (ImageView) findViewById(R.id.home_map);
         imageView_map.setOnClickListener(imageOnClickListener_map);
 
@@ -99,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
-                    startActivity(intent4);                }
+                    startActivity(intent4);
+                }
             };
 
     View.OnClickListener imageOnClickListener_exif =
@@ -107,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
 
     View.OnClickListener imageOnClickListener_celestial =
@@ -115,42 +113,40 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, CelestialActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
     View.OnClickListener imageOnClickListener_about =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
     View.OnClickListener imageOnClickListener_calculator =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, CalculatorActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
     View.OnClickListener imageOnClickListener_map =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
-                    startActivity(intent1);                }
-            };
-    View.OnClickListener imageOnClickListener_login =
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
     View.OnClickListener imageOnClickListener_management =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, ManagementActivity.class);
-                    startActivity(intent1);                }
+                    startActivity(intent1);
+                }
             };
 
 
