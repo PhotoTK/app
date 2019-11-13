@@ -10,9 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
-import com.cs495.phototk.ui.weather.Model.Main;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -65,7 +63,7 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // if there is a user signed in, send them to the profile activity
                 if (mCurrentUser != null) {
-                    Intent intent = new Intent(UserActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(UserActivity.this, AccountActivity.class);
                     startActivity(intent);
                 }
                 else {

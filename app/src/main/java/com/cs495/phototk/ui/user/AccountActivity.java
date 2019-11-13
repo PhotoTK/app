@@ -7,10 +7,10 @@ import android.util.Log;
 
 import com.cs495.phototk.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class AccountActivity extends AppCompatActivity {
 
     // Constants
-    private static final String TAG = "ProfileActivity";
+    private static final String TAG = "AccountActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
