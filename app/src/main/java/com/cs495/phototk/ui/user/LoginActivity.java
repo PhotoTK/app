@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     // UI variables
-    private EditText mEmail, mPassword;
-    private Button btnSignIn, btnRegister, btnContinueWihoutLoggingIn;
+    private EditText mEmailTextField, mPasswordTextField;
+    private Button btnSignIn, btnRegister, btnContinueWithoutLoggingIn;
 
 
     @Override
@@ -61,11 +61,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initUI() {
         // initialize edit texts and buttons
-        mEmail = (EditText) findViewById(R.id.email);
-        mPassword = (EditText) findViewById(R.id.password);
+        mEmailTextField = (EditText) findViewById(R.id.email);
+        mPasswordTextField = (EditText) findViewById(R.id.password);
         btnSignIn = (Button) findViewById(R.id.email_sign_in_button);
         btnRegister = (Button) findViewById(R.id.register_button);
-        btnContinueWihoutLoggingIn = (Button) findViewById(R.id.continue_without_logging_in_button);
+        btnContinueWithoutLoggingIn = (Button) findViewById(R.id.continue_without_logging_in_button);
         // add OnClickListeners to buttons
         initOnClickListeners();
     }
@@ -75,11 +75,10 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement sign-in button OnClickListener
-                String email = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
+                String email = mEmailTextField.getText().toString();
+                String password = mPasswordTextField.getText().toString();
                 if (!email.equals("") && !password.equals("")) {
-
+                    signIn(email, password);
                 }
             }
         });
@@ -93,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Continue without logging in listener
-        btnContinueWihoutLoggingIn.setOnClickListener(new View.OnClickListener() {
+        btnContinueWithoutLoggingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -112,6 +111,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String password) {
+        // TODO: validate email
+        // TODO: validate password
+        // Sign in with email and password
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -120,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "Signed in as: " + user.getEmail(), Toast.LENGTH_SHORT).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -127,8 +130,6 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }

@@ -31,6 +31,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".MainActivity" />
         <activity android:name=".ui.celestial.CelestialActivity" />
         <activity android:name=".ui.calculator.CalculatorActivity" />
         <activity android:name=".ui.management.ManagementActivity" />
@@ -39,7 +40,8 @@
         <activity android:name=".ui.celestial.MeteorShower" />
         <activity android:name=".ui.weather.WeatherActivity" />
         <activity android:name=".ui.exif.EXIFActivity" />
-        <activity android:name=".ui.user.LoginActivity" >
+        <activity android:name=".ui.user.UserActivity"></activity>
+        <activity android:name=".ui.user.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,8 +51,6 @@
         <activity
             android:name=".ui.map.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".MainActivity">
-        </activity>
     </application>
 
 </manifest>

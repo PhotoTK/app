@@ -19,15 +19,21 @@ import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
 import com.cs495.phototk.ui.management.ManagementActivity;
 import com.cs495.phototk.ui.map.MapsActivity;
+import com.cs495.phototk.ui.user.UserActivity;
 import com.cs495.phototk.ui.weather.WeatherActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-        private static final String TAG = "MainActivity";
-        private static final int ERROR_DIALOG_REQUEST = 9001;
-        ImageView imageView_weather ,imageView_exif, imageView_calculator, imageView_celestial, imageView_management, imageView_about, imageView_login,imageView_map;
+
+    // Constants
+    private static final String TAG = "MainActivity";
+    private static final int ERROR_DIALOG_REQUEST = 9001;
+
+    // Member Variables
+    ImageView imageView_weather, imageView_exif, imageView_calculator, imageView_celestial, imageView_management, imageView_about, imageView_user, imageView_map;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: called");
@@ -74,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         imageView_exif = (ImageView) findViewById(R.id.home_exif);
         imageView_exif.setOnClickListener(imageOnClickListener_exif);
 
+        imageView_user = findViewById(R.id.home_user);
+        imageView_user.setOnClickListener(imageOnClickListener_user);
+
         imageView_calculator = (ImageView) findViewById(R.id.home_calculator);
         imageView_calculator.setOnClickListener(imageOnClickListener_calculator);
 
@@ -105,6 +114,15 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
                     startActivity(intent1);
+                }
+            };
+
+    View.OnClickListener imageOnClickListener_user =
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                    startActivity(intent);
                 }
             };
 
