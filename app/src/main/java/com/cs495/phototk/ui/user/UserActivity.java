@@ -21,7 +21,7 @@ public class UserActivity extends AppCompatActivity {
 
     // Member Variables
     private TextView mWhoSignedInTextView;
-    private Button btnProfile, btnSignIn, btnSignOut;
+    private Button btnAccount, btnSignIn, btnSignOut;
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
 
@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity {
     private void initUI() {
         Log.d(TAG, "initUI: called");
         mWhoSignedInTextView = (TextView) findViewById(R.id.whoSignedInTextView);
-        btnProfile = (Button) findViewById(R.id.btnProfile);
+        btnAccount = (Button) findViewById(R.id.btnAccount);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnSignOut = (Button) findViewById(R.id.btnSignOut);
         // set who is signed in for the text view
@@ -57,11 +57,11 @@ public class UserActivity extends AppCompatActivity {
     private void initOnClickListeners() {
         Log.d(TAG, "initOnClickListeners: called");
 
-        // btnProfile OnClickListener
-        btnProfile.setOnClickListener(new View.OnClickListener() {
+        // btnAccount OnClickListener
+        btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if there is a user signed in, send them to the profile activity
+                // if there is a user signed in, send them to the AccountActivity
                 if (mCurrentUser != null) {
                     Intent intent = new Intent(UserActivity.this, AccountActivity.class);
                     startActivity(intent);
