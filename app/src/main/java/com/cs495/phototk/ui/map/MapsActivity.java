@@ -40,6 +40,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 /*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_Map_center.xml instead of changing activity_Map.xml
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {

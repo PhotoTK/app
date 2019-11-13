@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".ui.user.ProfileActivity"></activity>
         <!--
          The API key for Google Maps-based APIs is defined as a string resource.
          (See the file "res/values/google_maps_api.xml").
@@ -40,7 +41,7 @@
         <activity android:name=".ui.celestial.MeteorShower" />
         <activity android:name=".ui.weather.WeatherActivity" />
         <activity android:name=".ui.exif.EXIFActivity" />
-        <activity android:name=".ui.user.UserActivity"></activity>
+        <activity android:name=".ui.user.UserActivity" />
         <activity android:name=".ui.user.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -87,7 +87,9 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement register button OnClickListener
+                String email = mEmailTextField.getText().toString();
+                String password = mPasswordTextField.getText().toString();
+                createAccount(email, password);
             }
         });
 
@@ -110,9 +112,33 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private void createAccount(String email, String password) {
+        Log.d(TAG, "createAccount: called");
+        // Validate email and password
+        validateCredentials(email, password);
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(LoginActivity.this, "Thank you for registering!", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+    
     private void signIn(String email, String password) {
-        // TODO: validate email
-        // TODO: validate password
+        // Validate email and password
+        validateCredentials(email, password);
         // Sign in with email and password
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -132,5 +158,28 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void validateCredentials(String email, String password) {
+        Log.d(TAG, "validateCredentials: validating user...");
+        if (!isEmailValid(email)) {
+            Log.w(TAG, "validateCredentials: User entered an invalid email address!");
+            Toast.makeText(this, "Invalid Email...", Toast.LENGTH_SHORT).show();
+        }
+        else if (!isPasswordValid(password)) {
+            Log.w(TAG, "validateCredentials: User entered an invalid password!");
+            Log.d(TAG, "signIn: User entered an invalid password");
+            Toast.makeText(this, "Invalid Password...", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    private Boolean isEmailValid(String email) {
+        // TODO: Implement isEmailValid
+        return true;
+    }
+
+    private Boolean isPasswordValid(String email) {
+        // TODO: Implement isPasswordValid
+        return true;
     }
 }
