@@ -103,8 +103,10 @@ public class MainActivity extends AppCompatActivity {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
-                    startActivity(intent4);
+                    if(isServicesOK()) {
+                        Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
+                        startActivity(intent4);
+                    }
                 }
             };
 
@@ -154,8 +156,10 @@ public class MainActivity extends AppCompatActivity {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
-                    startActivity(intent1);
+                    if(isServicesOK()) {
+                        Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
+                        startActivity(intent1);
+                    }
                 }
             };
     View.OnClickListener imageOnClickListener_management =
