@@ -6,14 +6,29 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.management.ManagementActivity">
+    tools:context=".ui.management.ManagementActivity"
+    android:background="@drawable/home_background">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:gravity="center"
-        android:text="Gear Management"
-        android:textSize="25dp" />
+        <RelativeLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:text="Gear Management"
+                android:textSize="22sp"
+                android:textColor="@color/colorWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="62dp"
+                android:layout_height="62dp"/>
+        </RelativeLayout>
+
 
     <ListView
         android:id="@+id/list_view_items"
