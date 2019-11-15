@@ -14,11 +14,64 @@
 
 
         <RelativeLayout
-            android:id="@+id/main_center"
+            android:id="@+id/gear_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottomBar">
             <include layout="@layout/activity_management_center" />
+
+            <Button
+                android:id="@+id/button_AddGear"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginEnd="76dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Add"
+                android:textColor="@color/White"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/empty_list_image"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/gear_empty" />
+
+            <TextView
+                android:id="@+id/empty_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/empty_list_image"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="16dp"
+                android:text="It's empty here."
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/empty_subtitle_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/empty_title_text"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif"
+                android:paddingTop="8dp"
+                android:text="Start managing your camera gears by adding a new gear!"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#A2AAB0" />
 
         </RelativeLayout>
 
