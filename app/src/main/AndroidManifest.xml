@@ -35,6 +35,7 @@
         <activity android:name=".ui.celestial.CelestialActivity" />
         <activity android:name=".ui.calculator.CalculatorActivity" />
         <activity android:name=".ui.management.ManagementActivity" />
+        <activity android:name=".ui.management.GearEdit" />
         <activity android:name=".ui.celestial.SolarEclipse" />
         <activity android:name=".ui.celestial.MoonEclipse" />
         <activity android:name=".ui.celestial.MeteorShower" />
