@@ -14,7 +14,7 @@ public class Common {
 
     public static String convertUnixToDate(long dt) {
         Date date = new Date(dt*1000L);
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm: EEE MM yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd EEE MM yyyy");
         String formatted = sdf.format(date);
         return  formatted;
     }
@@ -48,5 +48,17 @@ public class Common {
         if(degree>67.5) return "Easterly";
         if(degree>22.5) return "North Easterly";
         return "Northerly";
+    }
+
+    public static String convertCelsiusToFahrenheit(double temp) {
+        double tempf = ((temp/(9/5))+32);
+        String formatted = String.valueOf(df2.format(tempf));
+        return formatted;
+    }
+
+    public static String convertCelsiusToKelvin(double temp) {
+        double tempk = (temp+273.15);
+        String formatted = String.valueOf(df2.format(tempk));
+        return formatted;
     }
 }

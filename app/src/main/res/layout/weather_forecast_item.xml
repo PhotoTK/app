@@ -23,6 +23,62 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="Friday"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_weather"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <TextView
+                android:id="@+id/text_temp"
+                android:textColor="@color/colorText"
+                android:layout_marginLeft="8dp"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:text="62 °K"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_temp_f"
+                android:textColor="@color/colorText"
+                android:layout_marginLeft="8dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="62 °F"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_temp_c"
+                android:textColor="@color/colorText"
+                android:layout_marginLeft="8dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="62 °C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/text_description"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            android:text="Weather in Tuscaloosa,AL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         
     </LinearLayout>
 

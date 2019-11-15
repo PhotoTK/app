@@ -2,7 +2,7 @@ package com.cs495.phototk.ui.weather.Model;
 
 public class Main {
     private double temp;
-    private int pressure;
+    private float pressure;
     private int humidity;
     private double temp_min;
     private double temp_max;
@@ -18,11 +18,11 @@ public class Main {
         this.temp = temp;
     }
 
-    public int getPressure() {
+    public float getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(float pressure) {
         this.pressure = pressure;
     }
 

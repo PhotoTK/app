@@ -129,9 +129,14 @@ public class weather_today extends Fragment {
                         Toast.makeText(getActivity(), ""+throwable.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 })
-
-
         );
     }
+    @Override
+    public  void  onStop()
+    {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
 
 }
