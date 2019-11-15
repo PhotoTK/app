@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +21,8 @@ import com.cs495.phototk.ui.map.MapsActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-/*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_Management_center.xml instead of changing activity_Management.xml
- */
+
+
 public class ManagementActivity extends AppCompatActivity {
     private static final String TAG = "ManagementActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -64,8 +67,20 @@ public class ManagementActivity extends AppCompatActivity {
                 return false;
             }
         });
+        button_AddGear();
     }
 
+
+    public void button_AddGear() {
+        Button addGearButton = (Button) findViewById(R.id.button_AddGear);
+        addGearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ManagementActivity.this, GearEdit.class);
+                startActivity(i);
+            }
+        });
+    }
     private Boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
         int isAvailable = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(ManagementActivity.this);
