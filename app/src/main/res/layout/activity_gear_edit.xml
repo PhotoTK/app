@@ -47,6 +47,31 @@
 
             <TextView
                 style="@style/TextStyle"
+                android:text="Gear owner" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingLeft="4dp">
+
+                <EditText
+                    android:id="@+id/edit_owner_name"
+                    style="@style/EditorFieldStyle"
+                    android:hint="Owner"
+                    android:inputType="textCapWords" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextStyle"
                 android:text="Insurance date" />
 
             <RelativeLayout
@@ -116,7 +141,6 @@
                     android:text="$" />
 
             </RelativeLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -126,7 +150,7 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Other detail" />
+                android:text="Gear detail" />
 
             <LinearLayout
                 android:layout_width="0dp"
