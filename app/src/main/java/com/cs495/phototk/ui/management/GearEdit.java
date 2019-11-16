@@ -7,7 +7,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,16 +22,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cs495.phototk.R;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Date;
 
 public class GearEdit extends AppCompatActivity {
     static final int REQUEST_CAMERA = 1;
     ImageView gearImage;
     byte[] imageBlob = null;
+    DatabaseReference myGear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gear_edit);
+
+        myGear = FirebaseDatabase.getInstance().getReference("gears");
 
         gearImage = (ImageView) findViewById(R.id.gear_photo);
         gearImage.setOnClickListener(new View.OnClickListener() {
@@ -65,11 +76,57 @@ public class GearEdit extends AppCompatActivity {
 
 
     public void saveItem() {
+        EditText gearName = (EditText) findViewById(R.id.edit_item_name);
+        EditText gearOwner = (EditText) findViewById(R.id.edit_owner_name);
+        EditText insurance = (EditText) findViewById(R.id.edit_insurance_date);
+        EditText warranty = (EditText) findViewById(R.id.edit_warranty_date);
+        EditText price = (EditText) findViewById(R.id.edit_item_price);
+        EditText detail = (EditText) findViewById(R.id.edit_detail);
+
+
+        String mGearName = gearName.getText().toString();
+        if (gearName.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "Gear name cannot be empty", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String mOwnerName = gearOwner.getText().toString();
+        if (gearOwner.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "Owner name cannot be empty", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String mInsurance = insurance.getText().toString();
+        String mWarranty = insurance.getText().toString();
+
+        double mPrice = 0.0;
+        if (price.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "Please enter the gear price", Toast.LENGTH_LONG).show();
+            return;
+        } else {
+            mPrice = Double.parseDouble(price.getText().toString());
+        }
+
+        String mDetail = detail.getText().toString();
+
+
+        if (imageBlob == null) {
+            Toast.makeText(getApplicationContext(), "Gear picture required", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         /*
 
         SAVE TO DATABASE
 
          */
+
+        String id = myGear.push().getKey();
+        Gears newGear =  new Gears(id,mGearName,mOwnerName,mInsurance,mWarranty, mPrice,mDetail);
+
+        myGear.child(id).setValue(newGear);
+
+        Toast.makeText(this,"Gear Added", Toast.LENGTH_LONG).show();
         finish();
     }
 }
