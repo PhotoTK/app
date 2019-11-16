@@ -45,22 +45,26 @@ public class ManagementActivity extends AppCompatActivity {
                     case R.id.ic_home:
                         Intent intent0 = new Intent(ManagementActivity.this, MainActivity.class);
                         startActivity(intent0);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(ManagementActivity.this, EXIFActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(ManagementActivity.this, CelestialActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_map:
                         if(isServicesOK()) {
                             Intent intent4 = new Intent(ManagementActivity.this, MapsActivity.class);
                             startActivity(intent4);
+                            overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         }
                         break;
                 }
@@ -78,6 +82,7 @@ public class ManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ManagementActivity.this, GearEdit.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
             }
         });
     }

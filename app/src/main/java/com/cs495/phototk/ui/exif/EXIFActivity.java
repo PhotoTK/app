@@ -303,6 +303,7 @@ public class EXIFActivity extends AppCompatActivity {
                     case R.id.ic_home:
                         Intent intent0 = new Intent(EXIFActivity.this, MainActivity.class);
                         startActivity(intent0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
 
                     case R.id.ic_exif:
@@ -312,12 +313,14 @@ public class EXIFActivity extends AppCompatActivity {
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(EXIFActivity.this, CelestialActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
 
                     case R.id.ic_map:
                         if(isServicesOK()) {
                             Intent intent4 = new Intent(EXIFActivity.this, MapsActivity.class);
                             startActivity(intent4);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }

@@ -46,11 +46,13 @@ public class CelestialActivity extends AppCompatActivity {
                     case R.id.ic_home:
                         Intent intent0 = new Intent(CelestialActivity.this, MainActivity.class);
                         startActivity(intent0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
 
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(CelestialActivity.this, EXIFActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
 
                     case R.id.ic_celestial:
@@ -61,6 +63,7 @@ public class CelestialActivity extends AppCompatActivity {
                         if(isServicesOK()) {
                             Intent intent4 = new Intent(CelestialActivity.this, MapsActivity.class);
                             startActivity(intent4);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
 

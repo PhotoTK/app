@@ -8,12 +8,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:645618573506:android:c72b5606da99beef19db5b",
+        "mobilesdk_app_id": "1:645618573506:android:db0849acae176e8819db5b",
         "android_client_info": {
           "package_name": "com.cs495.phototk"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "645618573506-8f5n5t1nrh1mmuonv6rtughmdm8i8arv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cs495.phototk",
+            "certificate_hash": "044b595b5f8073419023797e93a4fa6e9577bb35"
+          }
+        },
+        {
+          "client_id": "645618573506-92qpe5qvquksub37t9072g22hg776tam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cs495.phototk",
+            "certificate_hash": "e8814c43bdc887beb7e4c0dd2798a1a400da67a0"
+          }
+        },
         {
           "client_id": "645618573506-k87p5b0nr69n7peu2ktbf9abu926c012.apps.googleusercontent.com",
           "client_type": 3

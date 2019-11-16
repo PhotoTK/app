@@ -77,16 +77,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     case R.id.ic_home:
                         Intent intent0 = new Intent(MapsActivity.this, MainActivity.class);
                         startActivity(intent0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
 
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(MapsActivity.this, EXIFActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
 
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(MapsActivity.this, CelestialActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
 
                     case R.id.ic_map:

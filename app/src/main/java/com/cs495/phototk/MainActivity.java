@@ -56,17 +56,20 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
 
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(MainActivity.this, CelestialActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
 
                     case R.id.ic_map:
                         if(isServicesOK()) {
                             Intent intent4 = new Intent(MainActivity.this, MapsActivity.class);
                             startActivity(intent4);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         }
                         break;
                 }
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     if(isServicesOK()) {
                         Intent intent4 = new Intent(MainActivity.this, WeatherActivity.class);
                         startActivity(intent4);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                     }
                 }
             };
@@ -116,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
             };
 
@@ -134,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, CelestialActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
             };
     View.OnClickListener imageOnClickListener_about =
@@ -142,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
             };
     View.OnClickListener imageOnClickListener_calculator =
@@ -150,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, CalculatorActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
             };
     View.OnClickListener imageOnClickListener_map =
@@ -159,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     if(isServicesOK()) {
                         Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                     }
                 }
             };
@@ -168,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, ManagementActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
             };
 

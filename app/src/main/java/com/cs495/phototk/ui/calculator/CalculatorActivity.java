@@ -47,22 +47,26 @@ public class CalculatorActivity extends AppCompatActivity {
                     case R.id.ic_home:
                         Intent intent0 = new Intent(CalculatorActivity.this, MainActivity.class);
                         startActivity(intent0);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(CalculatorActivity.this, EXIFActivity.class);
                         startActivity(intent1);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(CalculatorActivity.this, CelestialActivity.class);
                         startActivity(intent3);
+                        overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         break;
 
                     case R.id.ic_map:
                         if(isServicesOK()) {
                             Intent intent4 = new Intent(CalculatorActivity.this, MapsActivity.class);
                             startActivity(intent4);
+                            overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         }
                         break;
                 }
