@@ -56,7 +56,9 @@ public class CelestialActivity extends AppCompatActivity {
                         break;
 
                     case R.id.ic_celestial:
-
+                        Intent intent2 = new Intent(CelestialActivity.this, CelestialActivity.class);
+                        startActivity(intent2);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
 
                     case R.id.ic_map:
@@ -78,6 +80,7 @@ public class CelestialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CelestialActivity.this, SolarEclipse.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
             }
         });
         buttonMoon_Eclipse();
