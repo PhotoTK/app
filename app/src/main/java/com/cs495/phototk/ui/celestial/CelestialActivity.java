@@ -95,6 +95,7 @@ public class CelestialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CelestialActivity.this, MoonEclipse.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
             }
         });
     }
@@ -107,6 +108,7 @@ public class CelestialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CelestialActivity.this, MeteorShower.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
             }
         });
     }
