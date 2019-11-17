@@ -37,16 +37,17 @@ import com.google.firebase.storage.StorageReference;
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
 
-public class GearEdit extends AppCompatActivity {
+public class GearDetail extends AppCompatActivity {
     static final int REQUEST_CAMERA = 1;
     ImageView gearImage;
     byte[] imageBlob = null;
     DatabaseReference myGear;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gear_edit);
+        setContentView(R.layout.activity_gear_detail);
 
         myGear = FirebaseDatabase.getInstance().getReference("gears");
 
