@@ -35,6 +35,14 @@
                 android:text="Add"
                 android:textColor="@color/White"/>
 
+            <ListView
+                android:id="@+id/list_view_gears"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="70dp"
+                android:layout_above="@id/button_AddGear" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -72,6 +80,7 @@
                 android:text="Start managing your camera gears by adding a new gear!"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="#A2AAB0" />
+
 
         </RelativeLayout>
 
