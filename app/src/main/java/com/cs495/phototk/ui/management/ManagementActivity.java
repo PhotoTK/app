@@ -3,15 +3,27 @@ package com.cs495.phototk.ui.management;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import android.app.AlertDialog;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import org.parceler.Parcels;
 
 import com.cs495.phototk.MainActivity;
 import com.cs495.phototk.R;
@@ -22,10 +34,18 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ManagementActivity extends AppCompatActivity {
     private static final String TAG = "ManagementActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
+    private DatabaseReference gearsRef;
+    private List<Gears> listGear = new ArrayList<>();
+    private GearListAdapter gearListAdapter;
+    private ListView listView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +91,17 @@ public class ManagementActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        gearsRef = rootRef.child("gears");
+
         button_AddGear();
+        emptyUtility();
+
+        addChildEventListener();
+        //setListViewItemListener();
+        setListViewLongClickListener();
+
     }
 
 
@@ -86,6 +116,103 @@ public class ManagementActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    public void emptyUtility() {
+        gearListAdapter = new GearListAdapter(this, listGear);
+        listView = (ListView) findViewById(R.id.list_view_gears);
+        View emptyView = findViewById(R.id.empty_view);
+        listView.setEmptyView(emptyView);
+        listView.setAdapter(gearListAdapter);
+       // emptyView.setVisibility(View.VISIBLE);
+
+    }
+
+    private void addChildEventListener() {
+        gearsRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+               Gears gears = dataSnapshot.getValue(Gears.class);
+                if(gears != null){
+                    gears.setKey(dataSnapshot.getKey());
+                    listGear.add(dataSnapshot.getValue(Gears.class));
+                    gearListAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Gears gears = dataSnapshot.getValue(Gears.class);
+                if(gears != null){
+                    String key = dataSnapshot.getKey();
+                    for(int i=0;i<listGear.size();i++){
+                        Gears gears1 = listGear.get(i);
+                        if(gears1.getKey().equals(key)){
+                            listGear.set(i, gears);
+                            gearListAdapter.notifyDataSetChanged();
+                            return;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+              listGear.remove(dataSnapshot.getValue(Gears.class));
+              gearListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+
+
+    /*private void setListViewItemListener(){
+         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                 Bundle bundle = new Bundle();
+                 bundle.putBoolean("edit", true);
+                 bundle.putParcelable("gears", Parcels.wrap(listGear.get(i)));
+                 Intent intent = new Intent(ManagementActivity.this, GearEdit.class);
+                 intent.putExtras(bundle);
+                 ManagementActivity.this.startActivity(intent);
+             }
+         });
+    }*/
+
+    private void setListViewLongClickListener(){
+        listView.setOnItemLongClickListener((adapterView, view, i, l) -> {
+            Gears gears = listGear.get(i);
+            new AlertDialog.Builder(this)
+                    .setTitle("Delete " + gears.getGearName())
+                    .setMessage("Delete the selected gear?")
+                    .setPositiveButton("Delete", (dialogInterface, i1) -> {
+                        gearsRef.child(gears.getGearID()).removeValue();
+                        finish();
+                        startActivity(getIntent());
+                    })
+                    .setNegativeButton("Cancel", (dialogInterface, i12) -> {
+                        dialogInterface.dismiss();
+                    })
+                    .create()
+                    .show();
+            return true;
+        });
+    }
+
+
+
+
     private Boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
         int isAvailable = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(ManagementActivity.this);
