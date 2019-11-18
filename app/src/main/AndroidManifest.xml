@@ -39,6 +39,7 @@
         <activity android:name=".ui.celestial.SolarEclipse" />
         <activity android:name=".ui.celestial.MoonEclipse" />
         <activity android:name=".ui.celestial.MeteorShower" />
+        <activity android:name=".ui.celestial.SearchCelestial" />
         <activity android:name=".ui.weather.WeatherActivity" />
         <activity android:name=".ui.exif.EXIFActivity" />
         <activity android:name=".ui.user.AccountActivity" />
