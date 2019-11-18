@@ -12,7 +12,7 @@
         android:id="@+id/search_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Please enter the celestial event name"
+        android:hint="Please enter the celestial Id"
         android:imeOptions="actionNext"
         android:inputType="text" />
 
