@@ -82,6 +82,7 @@ public class CelestialActivity extends AppCompatActivity {
         });
         buttonMoon_Eclipse();
         buttonMeteor_shower();
+        buttonSearch_Celestial();
     }
 
     private void buttonMoon_Eclipse() {
@@ -109,6 +110,20 @@ public class CelestialActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void buttonSearch_Celestial() {
+        Log.d(TAG, "buttonSearch_Celestial: called");
+        ImageView btnSearch_Celestial = findViewById(R.id.btnSearch_Celestial);
+        btnSearch_Celestial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CelestialActivity.this, SearchCelestial.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
+            }
+        });
+    }
+
     private Boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
         int isAvailable = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(CelestialActivity.this);
