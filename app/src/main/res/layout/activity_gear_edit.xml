@@ -177,7 +177,7 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Add gear picture" />
+                android:text="Gear picture" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -222,6 +222,30 @@
             android:drawablePadding="-48dp" />
 
     </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/gear_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar">
+
+            <Button
+                android:id="@+id/button_return"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginEnd="76dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorPrimary"
+                android:text="Back"
+                android:textColor="@color/White" />
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>
