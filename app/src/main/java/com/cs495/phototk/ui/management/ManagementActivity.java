@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -97,9 +99,8 @@ public class ManagementActivity extends AppCompatActivity {
 
         button_AddGear();
         emptyUtility();
-
         addChildEventListener();
-        //setListViewItemListener();
+        setListViewItemListener();
         setListViewLongClickListener();
 
     }
@@ -110,8 +111,8 @@ public class ManagementActivity extends AppCompatActivity {
         addGearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ManagementActivity.this, GearEdit.class);
-                startActivity(i);
+                Intent inte = new Intent(ManagementActivity.this, GearEdit.class);
+                startActivity(inte);
                 overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
             }
         });
@@ -150,10 +151,10 @@ public class ManagementActivity extends AppCompatActivity {
                 Gears gears = dataSnapshot.getValue(Gears.class);
                 if(gears != null){
                     String key = dataSnapshot.getKey();
-                    for(int i=0;i<listGear.size();i++){
-                        Gears gears1 = listGear.get(i);
+                    for(int x=0;x<listGear.size();x++){
+                        Gears gears1 = listGear.get(x);
                         if(gears1.getKey().equals(key)){
-                            listGear.set(i, gears);
+                            listGear.set(x, gears);
                             gearListAdapter.notifyDataSetChanged();
                             return;
                         }
@@ -176,30 +177,27 @@ public class ManagementActivity extends AppCompatActivity {
     }
 
 
-    /*private void setListViewItemListener(){
-         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-             @Override
-             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                 Bundle bundle = new Bundle();
-                 bundle.putBoolean("edit", true);
-                 bundle.putParcelable("gears", Parcels.wrap(listGear.get(i)));
-                 Intent intent = new Intent(ManagementActivity.this, GearEdit.class);
-                 intent.putExtras(bundle);
-                 ManagementActivity.this.startActivity(intent);
-             }
-         });
-    }*/
+    private void setListViewItemListener(){
+        listView.setOnItemClickListener((adapterView, view, x, l) -> {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("edit", true);
+
+            bundle.putParcelable("gears", listGear.get(x));
+            Intent intent = new Intent(this, GearEdit.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+    }
+
 
     private void setListViewLongClickListener(){
-        listView.setOnItemLongClickListener((adapterView, view, i, l) -> {
-            Gears gears = listGear.get(i);
+        listView.setOnItemLongClickListener((adapterView, view, x, l) -> {
+            Gears gears = listGear.get(x);
             new AlertDialog.Builder(this)
                     .setTitle("Delete " + gears.getGearName())
                     .setMessage("Delete the selected gear?")
                     .setPositiveButton("Delete", (dialogInterface, i1) -> {
-                        gearsRef.child(gears.getGearID()).removeValue();
-                        finish();
-                        startActivity(getIntent());
+                        gearsRef.child(gears.getKey()).removeValue();
                     })
                     .setNegativeButton("Cancel", (dialogInterface, i12) -> {
                         dialogInterface.dismiss();

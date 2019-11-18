@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false">
-        
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
