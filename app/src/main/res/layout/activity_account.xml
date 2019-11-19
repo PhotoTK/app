@@ -16,15 +16,6 @@
         android:layout_marginBottom="16dp"
         tools:ignore="HardcodedText" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You must enter your current password to change your password or delete your account."
-        android:textSize="12sp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"/>
-
     <EditText
         android:id="@+id/current_password"
         android:layout_width="match_parent"
