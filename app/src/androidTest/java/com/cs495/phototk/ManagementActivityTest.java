@@ -5,6 +5,7 @@ import com.cs495.phototk.ui.management.GearEdit;
 import android.app.Instrumentation;
 import android.view.View;
 
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -20,7 +21,9 @@ import android.os.SystemClock;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.action.ViewActions.longClick;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -59,7 +62,7 @@ public class ManagementActivityTest {
     }
 
     @Test
-    public void testEditText()
+    public void testAddGearEditText()
     {
         View view = mActivity.findViewById(R.id.button_AddGear);
         assertNotNull(view);
@@ -70,6 +73,20 @@ public class ManagementActivityTest {
         onView(withId(R.id.edit_insurance_date)).perform(typeText("2022/5/5"));
         onView(withId(R.id.edit_warranty_date)).perform(typeText("2022/6/6"));
         onView(withId(R.id.edit_detail)).perform(typeText("testing"));
+    }
+
+    @Test
+    public void testEditGear()
+    {
+        SystemClock.sleep(1000);
+        assertNotNull(mActivity.findViewById(R.id.list_view_gears));
+        onData(anything()).inAdapterView(withId(R.id.list_view_gears)).atPosition(5).perform(click());
+        onView(withId(R.id.edit_item_name)).perform(clearText(), typeText("Test"));
+        onView(withId(R.id.edit_owner_name)).perform(clearText(), typeText("TestName"));
+        onView(withId(R.id.edit_item_price)).perform(clearText(), typeText("1.5"));
+        onView(withId(R.id.edit_insurance_date)).perform(clearText(), typeText("2022/3/5"));
+        onView(withId(R.id.edit_warranty_date)).perform(clearText(), typeText("2022/6/6"),closeSoftKeyboard());
+        onView(withId(R.id.button_save)).perform(click());
     }
 
     @Test
