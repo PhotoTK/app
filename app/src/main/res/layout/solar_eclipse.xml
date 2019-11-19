@@ -14,7 +14,7 @@
     android:divider="@drawable/line"
     android:dividerPadding="0dp"
     android:showDividers="middle"
-    android:background="#E2EDFD" >
+    android:background="#F9FAFC" >
 
     <RelativeLayout
         android:id="@+id/RelativeLayoutSolar"
@@ -33,7 +33,7 @@
             android:id="@+id/textone"
             android:layout_toRightOf="@id/btnone"
             android:layout_alignParentRight="true"
-            android:text="Id: 1\nTime: 2019/December/26 05:18:53\nLocation: 1.0°N 102.3°E\nPathWidth: 73mi\nCentralDuration: 3:40"
+            android:text="Id: 120191226\nTime: 2019/December/26 05:18:53\nLocation: 1.0°N 102.3°E\nPathWidth: 73mi\nCentralDuration: 3:40"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -56,7 +56,7 @@
             android:id="@+id/textone1"
             android:layout_toRightOf="@id/btnone1"
             android:layout_alignParentRight="true"
-            android:text="Id: 2\nTime: 2020/June/21 06:41:15\nLocation: 30.5°N 79.7°E\nPathWidth: 13mi\nCentralDuration: 0:38"
+            android:text="Id: 120200621\nTime: 2020/June/21 06:41:15\nLocation: 30.5°N 79.7°E\nPathWidth: 13mi\nCentralDuration: 0:38"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -79,7 +79,7 @@
             android:id="@+id/textone2"
             android:layout_toRightOf="@id/btnone2"
             android:layout_alignParentRight="true"
-            android:text="Id: 3\nTime: 2020/December/14 16:14:39\nLocation: 40.3°S 67.9°W\nPathWidth: 56mi\nCentralDuration: 2:10"
+            android:text="Id: 120201214\nTime: 2020/December/14 16:14:39\nLocation: 40.3°S 67.9°W\nPathWidth: 56mi\nCentralDuration: 2:10"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -102,7 +102,7 @@
             android:id="@+id/textone3"
             android:layout_toRightOf="@id/btnone3"
             android:layout_alignParentRight="true"
-            android:text="Id: 4\nTime: 2021/June/10 10:43:07\nLocation: 80.8°N 66.8°W\nPathWidth: 327mi\nCentralDuration: 3:51"
+            android:text="Id: 120210610\nTime: 2021/June/10 10:43:07\nLocation: 80.8°N 66.8°W\nPathWidth: 327mi\nCentralDuration: 3:51"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -125,7 +125,7 @@
             android:id="@+id/textone4"
             android:layout_toRightOf="@id/btnone4"
             android:layout_alignParentRight="true"
-            android:text="Id: 5\nTime: 2021/December/4 07:34:38\nLocation: 76.8°S 46.2°W\nPathWidth: 260mi\nCentralDuration: 1:54"
+            android:text="Id: 120211204\nTime: 2021/December/4 07:34:38\nLocation: 76.8°S 46.2°W\nPathWidth: 260mi\nCentralDuration: 1:54"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -148,7 +148,7 @@
             android:id="@+id/textone5"
             android:layout_toRightOf="@id/btnone5"
             android:layout_alignParentRight="true"
-            android:text="Id: 6\nTime: 2022/April/30 20:42:36\nLocation: 62.1°S 71.5°W\nPathWidth: NULL\nCentralDuration: NULL"
+            android:text="Id: 120220430\nTime: 2022/April/30 20:42:36\nLocation: 62.1°S 71.5°W\nPathWidth: NULL\nCentralDuration: NULL"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -171,7 +171,7 @@
             android:id="@+id/textone6"
             android:layout_toRightOf="@id/btnone6"
             android:layout_alignParentRight="true"
-            android:text="Id: 7\nTime: 2022/October/25 11:01:20\nLocation: 61.6°N 77.4°E\nPathWidth: NULL\nCentralDuration: NULL"
+            android:text="Id: 120221025\nTime: 2022/October/25 11:01:20\nLocation: 61.6°N 77.4°E\nPathWidth: NULL\nCentralDuration: NULL"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -194,7 +194,7 @@
             android:id="@+id/textone7"
             android:layout_toRightOf="@id/btnone7"
             android:layout_alignParentRight="true"
-            android:text="Id: 8\nTime: 2023/October/14 18:00:41\nLocation: 11.4°N 83.1°W\nPathWidth: 116mi\nCentralDuration: 5:17"
+            android:text="Id: 120231014\nTime: 2023/October/14 18:00:41\nLocation: 11.4°N 83.1°W\nPathWidth: 116mi\nCentralDuration: 5:17"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 
@@ -217,7 +217,7 @@
             android:id="@+id/textone8"
             android:layout_toRightOf="@id/btnone8"
             android:layout_alignParentRight="true"
-            android:text="Time: 2024/April/8 18:18:29\nLocation: 25.3°N 104.1°W\nPathWidth: 123mi\nCentralDuration: 4:28"
+            android:text="Id: 120240408\nTime: 2024/April/8 18:18:29\nLocation: 25.3°N 104.1°W\nPathWidth: 123mi\nCentralDuration: 4:28"
             android:textColor="#000000"
             android:layout_marginLeft="60dp" />
 

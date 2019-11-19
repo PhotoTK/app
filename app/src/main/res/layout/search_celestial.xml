@@ -12,7 +12,7 @@
         android:id="@+id/search_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Please enter the celestial Id"
+        android:hint="Please enter Id\nSolarNum:1,MoonNum:2,MeteorNum:3, num+data.\nex: 120191226"
         android:imeOptions="actionNext"
         android:inputType="text" />
 
