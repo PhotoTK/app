@@ -67,7 +67,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="16dp"
                 android:text="It's empty here."
-                android:textAppearance="?android:textAppearanceMedium" />
+                android:textAppearance="?android:textAppearanceMedium" 
+                android:textColor="#666666"/>
 
             <TextView
                 android:id="@+id/empty_subtitle_text"
