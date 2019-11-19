@@ -2,7 +2,6 @@ package com.cs495.phototk.ui.user;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,7 +17,7 @@ public class AccountActivity extends AppCompatActivity {
     private static final String TAG = "AccountActivity";
 
     // Member Variables
-    EditText mCurrentPassword, mNewPassword, mConfirmNewPassowrd;
+    EditText mCurrentPassword, mNewPassword, mConfirmNewPassword;
     Button mChangePasswordButton, mDeleteAccountButton;
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;
@@ -44,7 +43,7 @@ public class AccountActivity extends AppCompatActivity {
         Log.d(TAG, "initUI: called");
         mCurrentPassword = (EditText) findViewById(R.id.current_password);
         mNewPassword = (EditText) findViewById(R.id.new_password);
-        mConfirmNewPassowrd = (EditText) findViewById(R.id.confirm_new_password);
+        mConfirmNewPassword = (EditText) findViewById(R.id.confirm_new_password);
         mChangePasswordButton = (Button) findViewById(R.id.change_password_button);
         mDeleteAccountButton = (Button) findViewById(R.id.delete_account_button);
         initOnClickListeners();
