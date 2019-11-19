@@ -1,7 +1,6 @@
 package com.cs495.phototk.ui.user;
 
 import android.app.Instrumentation;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.test.rule.ActivityTestRule;
