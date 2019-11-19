@@ -1,14 +1,12 @@
 package com.cs495.phototk.ui.user;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cs495.phototk.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,8 +18,8 @@ public class AccountActivity extends AppCompatActivity {
     private static final String TAG = "AccountActivity";
 
     // Member Variables
-    EditText mFirstName, mLastName;
-    Button btnCancel, btnSubmit;
+    EditText mCurrentPassword, mNewPassword, mConfirmNewPassowrd;
+    Button mChangePasswordButton, mDeleteAccountButton;
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;
 
@@ -44,32 +42,19 @@ public class AccountActivity extends AppCompatActivity {
 
     private void initUI() {
         Log.d(TAG, "initUI: called");
-        mFirstName = (EditText) findViewById(R.id.first_name);
-        mLastName = (EditText) findViewById(R.id.last_name);
-        btnCancel = (Button) findViewById(R.id.cancel_button);
-        btnSubmit = (Button) findViewById(R.id.submit_button);
+        mCurrentPassword = (EditText) findViewById(R.id.current_password);
+        mNewPassword = (EditText) findViewById(R.id.new_password);
+        mConfirmNewPassowrd = (EditText) findViewById(R.id.confirm_new_password);
+        mChangePasswordButton = (Button) findViewById(R.id.change_password_button);
+        mDeleteAccountButton = (Button) findViewById(R.id.delete_account_button);
         initOnClickListeners();
     }
 
     private void initOnClickListeners() {
         Log.d(TAG, "initOnClickListeners: called");
 
-        // btnCancel OnClickListener
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AccountActivity.this, UserActivity.class);
-                startActivity(intent);
-            }
-        });
+        // TODO: implement change password OnClickListener
 
-        // btnSubmit OnClickListener
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: implement btnSubmit OnClickListener
-                Toast.makeText(AccountActivity.this, "Updated Account Information", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // TODO: implement delete button OnClickListener
     }
 }

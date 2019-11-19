@@ -11,73 +11,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Account Information"
+        android:text="Account Management"
         android:textSize="25sp"
+        android:layout_marginBottom="16dp"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        tools:ignore="HardcodedText" />
+        android:text="You must enter your current password to change your password or delete your account."
+        android:textSize="12sp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
+        android:id="@+id/current_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name"
-        android:id="@+id/first_name"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        tools:ignore="HardcodedText" />
+        android:hint="Current Password" />
 
     <EditText
+        android:id="@+id/new_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last Name"
-        android:id="@+id/last_name"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        tools:ignore="HardcodedText" />
+        android:hint="New Password" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/confirm_new_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:hint="Confirm New Password" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cancel"
-            android:id="@+id/cancel_button"
-            android:layout_margin="10dp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/change_password_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textStyle="bold"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit"
-            android:id="@+id/submit_button"
-            android:layout_margin="10dp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/delete_account_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Account"
+        android:background="@color/Red"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
