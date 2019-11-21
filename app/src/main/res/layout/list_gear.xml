@@ -28,7 +28,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif-medium"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/Black" />
+            android:textColor="#5365bd " />
 
         <TextView
             android:id="@+id/owner"
@@ -38,7 +38,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#191970" />
+            android:textColor="#b4bec7 " />
 
 
         <TextView
@@ -49,8 +49,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#191970" />
-
+            android:textColor="#b4bec7 " />
         <TextView
             android:id="@+id/insurance"
             android:layout_width="wrap_content"
@@ -59,7 +58,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#191970" />
+            android:textColor="#b4bec7 " />
 
         <TextView
             android:id="@+id/warranty"
@@ -69,7 +68,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#191970" />
+            android:textColor="#b4bec7 " />
 
         <TextView
             android:id="@+id/detail"
@@ -79,8 +78,7 @@
             android:paddingLeft="6dp"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#191970" />
-
+            android:textColor="#b4bec7 " />
 
     </LinearLayout>
 

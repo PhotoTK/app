@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_celestial"
@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.celestial.CelestialActivity"
-    android:background="@drawable/home_background">
+    android:background="#111111">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,8 @@
             <TextView
                 android:text="Celestial"
                 android:textSize="22sp"
-                android:textColor="@color/colorWhite"
+                android:textColor="#f5fcff"
+                android:fontFamily="@font/open_sans_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                app:cardBackgroundColor="#1f1e1e"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -64,7 +66,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:textSize="18sp"
-                        android:text="Solar_Eclipse"/>
+                        android:textColor="#d0d5d9"
+                        android:fontFamily="@font/open_sans"
+                        android:text="Solar Eclipse"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -75,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                app:cardBackgroundColor="#1f1e1e"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -96,7 +101,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:textSize="18sp"
-                        android:text="Moon_Eclipse"/>
+                        android:textColor="#d0d5d9"
+                        android:fontFamily="@font/open_sans"
+                        android:text="Moon Eclipse"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -106,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                app:cardBackgroundColor="#1f1e1e"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -127,7 +135,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:textSize="18sp"
-                        android:text="Meteor_Shower"/>
+                        android:textColor="#d0d5d9"
+                        android:fontFamily="@font/open_sans"
+                        android:text="Meteor Shower"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -136,6 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
+                    app:cardBackgroundColor="#1f1e1e"
                     app:cardElevation="6dp"
                     app:cardCornerRadius="12dp"
                     android:layout_margin="12dp">
@@ -157,10 +168,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:textSize="18sp"
+                            android:fontFamily="@font/open_sans"
+                            android:textColor="#d0d5d9"
                             android:text="Search Celestial"/>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
+
 
 
         </GridLayout>
@@ -168,4 +183,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    android:background="#111111">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear name" />
+                android:text="Gear name"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -35,6 +37,8 @@
                     android:id="@+id/edit_item_name"
                     style="@style/EditorFieldStyle"
                     android:hint="Name"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     android:inputType="textCapWords" />
 
             </LinearLayout>
@@ -47,7 +51,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear owner" />
+                android:text="Gear owner"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -60,6 +65,8 @@
                     android:id="@+id/edit_owner_name"
                     style="@style/EditorFieldStyle"
                     android:hint="Owner"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     android:inputType="textCapWords" />
 
             </LinearLayout>
@@ -72,7 +79,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Insurance date" />
+                android:text="Insurance date"
+                android:textColor="#a0a5b8"/>
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -84,6 +92,8 @@
                     android:id="@+id/edit_insurance_date"
                     style="@style/EditorFieldStyle"
                     android:hint="Date"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     android:inputType="date" />
 
             </RelativeLayout>
@@ -97,7 +107,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Warranty date" />
+                android:text="Warranty date"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -110,6 +121,8 @@
                     android:id="@+id/edit_warranty_date"
                     style="@style/EditorFieldStyle"
                     android:hint="Date"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     android:inputType="date" />
             </LinearLayout>
         </LinearLayout>
@@ -121,7 +134,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Price" />
+                android:text="Price"
+                android:textColor="#a0a5b8"/>
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -133,11 +147,14 @@
                     android:id="@+id/edit_item_price"
                     style="@style/EditorFieldStyle"
                     android:hint="Price"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     android:inputType="numberDecimal" />
 
                 <TextView
                     android:id="@+id/label_item_unit"
                     style="@style/EditorUnitsStyle"
+                    android:textColor="@color/WhiteSmoke"
                     android:text="$" />
 
             </RelativeLayout>
@@ -150,7 +167,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear detail" />
+                android:text="Gear detail"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -164,6 +182,8 @@
                     android:gravity="top|left"
                     android:lines="3"
                     android:hint="Detail"
+                    android:textColor="#cbcdd6"
+                    android:textColorHint="@color/colorWhite"
                     style="@style/EditorFieldStyle"
                     android:inputType="textMultiLine" />
 
@@ -177,7 +197,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear picture" />
+                android:text="Gear picture"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -207,7 +228,7 @@
         <Button
             android:id="@+id/button_save"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -215,9 +236,10 @@
             android:layout_marginTop="@dimen/fab_margin"
             android:layout_marginEnd="76dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button"
             android:text="Save"
-            android:textColor="@color/White"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/AliceBlue"
             android:drawableRight="@drawable/ic_done"
             android:drawablePadding="-48dp" />
 
@@ -232,7 +254,7 @@
             <Button
                 android:id="@+id/button_return"
                 android:layout_width="wrap_content"
-                android:layout_height="37dp"
+                android:layout_height="30dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
@@ -240,8 +262,9 @@
                 android:layout_marginTop="@dimen/fab_margin"
                 android:layout_marginEnd="76dp"
                 android:layout_marginBottom="15dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/button"
                 android:text="Back"
+                android:fontFamily="@font/open_sans"
                 android:textColor="@color/White" />
 
 

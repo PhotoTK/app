@@ -12,6 +12,8 @@
             android:layout_height="match_parent"
             android:id="@+id/bottomNavView_Bar"
             android:background="@drawable/white_grey_border_top"
+            app:itemIconTint="@drawable/drawer_item_color"
+            app:itemTextColor="@drawable/drawer_item_color"
             app:menu="@menu/bottom_navigation_menu"/>
 
     </RelativeLayout>

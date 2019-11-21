@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    android:background="#111111">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear name" />
+                android:text="Gear name"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -46,7 +48,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear owner" />
+                android:text="Gear owner"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -70,7 +73,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Insurance date" />
+                android:text="Insurance date"
+                android:textColor="#a0a5b8"/>
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -94,7 +98,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Warranty date" />
+                android:text="Warranty date"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -117,7 +122,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Price" />
+                android:text="Price"
+                android:textColor="#a0a5b8"/>
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -145,7 +151,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Gear detail" />
+                android:text="Gear detail"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -172,7 +179,8 @@
 
             <TextView
                 style="@style/TextStyle"
-                android:text="Add gear picture" />
+                android:text="Add gear picture"
+                android:textColor="#a0a5b8"/>
 
             <LinearLayout
                 android:layout_width="0dp"

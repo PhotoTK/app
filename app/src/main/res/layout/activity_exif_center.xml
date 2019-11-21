@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_background"
+    android:background="#111111"
     tools:context=".ui.exif.EXIFActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,8 @@
             <TextView
                 android:text="EXIF"
                 android:textSize="22sp"
-                android:textColor="@color/colorWhite"
+                android:textColor="#f5fcff"
+                android:fontFamily="@font/open_sans_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -28,16 +29,17 @@
 
         <EditText
             android:id="@+id/editdocument"
-            android:textColor="@color/colorText"
+            android:textColor="#d0d5d9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="input EXIF info" />
+            android:hint="input EXIF info"
+            android:textColorHint="@color/colorWhite"/>
 
         <Spinner
             android:id="@+id/Tag_Spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown" />
 
         <GridLayout
             android:columnCount="2"
@@ -52,7 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
-        app:cardElevation="6dp"
+            app:cardBackgroundColor="#1f1e1e"
+            app:cardElevation="6dp"
         app:cardCornerRadius="12dp"
         android:layout_margin="12dp">
         <LinearLayout
@@ -60,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-
             android:gravity="center">
             <ImageView
                 android:id="@+id/exif_open"
@@ -73,7 +75,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textSize="18sp"
-                android:text="Import"/>
+                android:text="Import"
+                android:fontFamily="@font/open_sans"
+                android:textColor="#d0d5d9"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -84,6 +88,7 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             app:cardElevation="6dp"
+            app:cardBackgroundColor="#1f1e1e"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
             <LinearLayout
@@ -104,7 +109,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:text="Set Exif"/>
+                    android:text="Set Exif"
+                    android:fontFamily="@font/open_sans"
+                    android:textColor="#d0d5d9"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
