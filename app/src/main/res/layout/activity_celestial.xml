@@ -5,29 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#111111"
-    tools:context=".MainActivity">
+    tools:context=".ui.celestial.CelestialActivity">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <RelativeLayout
-            android:id="@+id/main_center"
+            android:id="@+id/celestial_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottomBar">
-
             <include layout="@layout/activity_celestial_center" />
-
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true">
 
             <include layout="@layout/layout_bottom_navigation_view" />
@@ -37,7 +34,3 @@
     </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
-

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#313131"
+    android:background="@color/colorWhite"
     android:gravity="center_horizontal"
     tools:context=".ui.weather.weather_today">
 
@@ -107,7 +107,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Wind direction"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -117,7 +116,6 @@
                     android:id="@+id/text_wind_d"
                     android:background="@drawable/cell"
                     android:text="Gentle Breeze, 4.7 m/h"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -129,7 +127,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Wind speed"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -139,7 +136,6 @@
                     android:id="@+id/text_wind_s"
                     android:background="@drawable/cell"
                     android:text="Gentle Breeze, 4.7 m/h"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -151,7 +147,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Cloudiness"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -161,7 +156,6 @@
                     android:id="@+id/text_cloud"
                     android:background="@drawable/cell"
                     android:text="Sky is clear"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -173,7 +167,6 @@
             <TextView
                 android:background="@drawable/cell"
                 android:text="Pressure"
-                android:textColor="@color/AliceBlue"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
@@ -183,7 +176,6 @@
                 android:id="@+id/text_pressure"
                 android:background="@drawable/cell"
                 android:text="1024 hpa"
-                android:textColor="@color/AliceBlue"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
         </TableRow>
@@ -195,7 +187,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Humidity"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -205,7 +196,6 @@
                     android:id="@+id/text_humidity"
                     android:background="@drawable/cell"
                     android:text="35 %"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -217,7 +207,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Sunrise"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -227,7 +216,6 @@
                     android:id="@+id/text_sunrise"
                     android:background="@drawable/cell"
                     android:text="06:10"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -239,7 +227,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Sunset"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -249,7 +236,6 @@
                     android:id="@+id/text_sunset"
                     android:background="@drawable/cell"
                     android:text="16:57 "
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
             </TableRow>
@@ -261,7 +247,6 @@
                 <TextView
                     android:background="@drawable/cell"
                     android:text="Geo coords"
-                    android:textColor="@color/AliceBlue"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"/>
 
@@ -269,7 +254,6 @@
                     android:layout_marginLeft="8dp"
                     android:layout_column="1"
                     android:id="@+id/text_geo"
-                    android:textColor="@color/AliceBlue"
                     android:background="@drawable/cell"
                     android:text="[33.21, -87.57]"
                     android:layout_height="wrap_content"

@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
-    tools:context=".MainActivity">
+    android:background="@color/colorBackground"
+    tools:context=".ui.exif.EXIFActivity">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/main_center"
+            android:id="@+id/exif_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottomBar">
 
             <include layout="@layout/activity_exif_center" />
 
-
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true">
 
             <include layout="@layout/layout_bottom_navigation_view" />
@@ -36,5 +35,5 @@
 
     </RelativeLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

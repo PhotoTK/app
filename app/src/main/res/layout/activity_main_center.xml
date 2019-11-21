@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/home_background"
+    tools:context=".MainActivity"
+    >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <RelativeLayout
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp">
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans_semibold"
                 android:text="Home"
-                android:textColor="#f5fcff"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:textColor="@color/colorWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <ImageView
                 android:layout_alignParentRight="true"
@@ -33,20 +32,19 @@
                 android:layout_height="62dp"/>
         </RelativeLayout>
 
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false">
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -55,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+
                 android:gravity="center">
                 <ImageView
                     android:id="@+id/home_weather"
@@ -62,15 +61,12 @@
                     android:layout_height="90dp"
                     android:src="@drawable/home_weather"
                     />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:fontFamily="@font/open_sans"
-                    android:text="Weather"
-                    android:textColor="#d0d5d9"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:text="Weather"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -81,7 +77,6 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             app:cardElevation="6dp"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
             <LinearLayout
@@ -101,8 +96,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
                     android:text="EXIF"/>
             </LinearLayout>
 
@@ -113,7 +106,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -134,11 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
-
                     android:text="User"/>
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -148,7 +136,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -169,8 +156,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:fontFamily="@font/open_sans"
-                    android:textColor="#d0d5d9"
                     android:text="Calculator"/>
             </LinearLayout>
 
@@ -181,7 +166,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -202,8 +186,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
                     android:text="Location Record"/>
             </LinearLayout>
 
@@ -214,7 +196,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -235,8 +216,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
                     android:text="Gear Management"/>
             </LinearLayout>
 
@@ -247,7 +226,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -268,8 +246,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
                     android:text="Celestial Event"/>
             </LinearLayout>
 
@@ -280,7 +256,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="#1f1e1e"
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp">
@@ -301,15 +276,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:textSize="18sp"
-                    android:textColor="#d0d5d9"
-                    android:fontFamily="@font/open_sans"
-                    android:text="About Us"/>
+                    android:text="About US"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
-
 
     </GridLayout>
 
