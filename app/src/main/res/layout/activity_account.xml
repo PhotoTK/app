@@ -16,22 +16,31 @@
         android:layout_marginBottom="16dp"
         tools:ignore="HardcodedText" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Current password REQUIRED to change password or delete account."/>
+
     <EditText
         android:id="@+id/current_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="Current Password" />
 
     <EditText
         android:id="@+id/new_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="New Password" />
 
     <EditText
         android:id="@+id/confirm_new_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="Confirm New Password" />
 
     <Button
