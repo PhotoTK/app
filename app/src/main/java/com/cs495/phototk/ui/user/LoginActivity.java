@@ -159,9 +159,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Boolean isPasswordValid(String password) {
-        // TODO: Implement isPasswordValid
-        // TODO: Add proper password constraints
-        // right now, every password is valid
-        return true;
+        return password.length() >= 8;
     }
 }
