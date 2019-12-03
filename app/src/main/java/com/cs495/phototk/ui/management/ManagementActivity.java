@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import android.app.AlertDialog;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -93,9 +95,16 @@ public class ManagementActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mCurrentUser = mAuth.getCurrentUser();
+        String uid = mAuth.getUid();
+        if (mCurrentUser != null) {
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+            gearsRef = rootRef.child("users").child(uid);
+        }
+        else{
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        gearsRef = rootRef.child("gears");
+        gearsRef = rootRef.child("gears");}
 
         button_AddGear();
         emptyUtility();
