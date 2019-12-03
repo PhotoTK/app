@@ -12,6 +12,8 @@ import android.widget.Toast;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +51,18 @@ public class GearDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gear_detail);
 
-        myGear = FirebaseDatabase.getInstance().getReference("gears");
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mCurrentUser = mAuth.getCurrentUser();
+        String uid = mAuth.getUid();
+        if (mCurrentUser != null) {
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+            myGear  = rootRef.child("users").child(uid);
+        }
+        else{
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+            myGear  = rootRef.child("gears");}
+
 
         gearImage = (ImageView) findViewById(R.id.gear_photo);
         gearImage.setOnClickListener(new View.OnClickListener() {
