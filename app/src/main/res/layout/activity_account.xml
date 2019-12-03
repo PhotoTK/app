@@ -1,103 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".ui.user.AccountActivity"
-    android:orientation="vertical"
-    android:background="#111111">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_gravity="center"
-        android:text="Account Management"
-        android:textSize="25sp"
-        android:textColor="@color/AliceBlue"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        tools:ignore="HardcodedText" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/AliceBlue"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:text="Current password REQUIRED to change password or delete account."
-        tools:ignore="HardcodedText" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/current_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="#cbcdd6"
-        android:inputType="textPassword"
-        android:hint="Current Password"
-        android:maxLines="1"
-        tools:ignore="Autofill,HardcodedText" />
+        <RelativeLayout
+            android:id="@+id/main_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar">
+            <include layout="@layout/activity_account_center" />
 
-    <EditText
-        android:id="@+id/new_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="#cbcdd6"
-        android:inputType="textPassword"
-        android:hint="New Password"
-        android:maxLines="1"
-        tools:ignore="Autofill,HardcodedText" />
+        </RelativeLayout>
 
-    <EditText
-        android:id="@+id/confirm_new_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="#cbcdd6"
-        android:inputType="textPassword"
-        android:hint="Confirm New Password"
-        android:maxLines="1"
-        tools:ignore="Autofill,HardcodedText" />
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp" >
+            <include layout="@layout/layout_bottom_navigation_view" />
 
-        <Button
-            android:id="@+id/change_password_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/button"
-            android:textColor="@color/AliceBlue"
-            android:text="Change Password"
-            tools:ignore="ButtonStyle,HardcodedText" />
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/delete_account_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="16dp"
-            android:text="Delete Account"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/DarkRed"
-            android:textColor="@color/AliceBlue"
-            tools:ignore="ButtonStyle,HardcodedText" />
+    </RelativeLayout>
 
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
