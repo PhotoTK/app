@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cs495.phototk.ui.AboutActivity;
 import com.cs495.phototk.ui.calculator.CalculatorActivity;
 import com.cs495.phototk.ui.celestial.CelestialActivity;
 import com.cs495.phototk.ui.exif.EXIFActivity;
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent1 = new Intent(MainActivity.this, EXIFActivity.class);
+                    Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
                     startActivity(intent1);
                     overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                 }
