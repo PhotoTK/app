@@ -96,6 +96,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/button"
             android:textColor="@color/AliceBlue"
+            android:backgroundTint="@color/DarkGreen"
             android:text="Register"
             tools:ignore="ButtonStyle,HardcodedText" />
 
