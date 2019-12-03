@@ -1,54 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111"
-    tools:context=".ui.user.UserActivity"
-    android:orientation="vertical" >
+    tools:context=".ui.user.UserActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/whoSignedInTextView"
-        android:text="Not Signed In"
-        android:textColor="@color/AliceBlue"
-        android:paddingTop="50dp"
-        tools:ignore="HardcodedText" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:id="@+id/btnAccount"
-        android:text="Account"
-        android:background="@drawable/button"
-        android:textColor="@color/AliceBlue"
-        tools:ignore="HardcodedText" />
+        <RelativeLayout
+            android:id="@+id/main_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar">
+            <include layout="@layout/activity_user_center" />
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/button"
-        android:text="Sign In"
-        android:textColor="@color/AliceBlue"
-        tools:ignore="HardcodedText" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/button"
-        android:text="Sign Out"
-        android:textColor="@color/AliceBlue"
-        tools:ignore="HardcodedText" />
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true">
 
-</LinearLayout>
+            <include layout="@layout/layout_bottom_navigation_view" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
