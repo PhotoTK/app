@@ -83,14 +83,14 @@ public class AccountActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "onComplete: User password updated");
-                                        Toast.makeText(AccountActivity.this, "Password Updated...", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AccountActivity.this, "Password Updated", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(AccountActivity.this, UserActivity.class);
                                         startActivity(intent);
                                     }
                                     else {
                                         // User password NOT updated
                                         Log.w(TAG, "onComplete: Password update FAILED!");
-                                        Toast.makeText(AccountActivity.this, "Invalid password...", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AccountActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
