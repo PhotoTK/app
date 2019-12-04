@@ -13,12 +13,156 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/main_center"
+            android:id="@+id/calculator_center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomBar"
-            android:layout_below="@+id/topBar">
+            android:layout_above="@+id/bottomBar">
             <include layout="@layout/activity_calculator_center" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="80dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="Aperture"
+                        android:textColor="#a0a5b8"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:paddingLeft="4dp">
+
+                        <EditText
+                            android:id="@+id/aperture"
+                            style="@style/EditorFieldStyle"
+                            android:hint="f/(1~64)"
+                            android:textColor="#cbcdd6"
+                            android:textColorHint="@color/colorWhite"
+                            android:inputType="numberDecimal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="Shutter Speed"
+                        android:textColor="#a0a5b8" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:paddingLeft="4dp">
+
+
+                        <EditText
+                            android:id="@+id/speed"
+                            style="@style/EditorFieldStyle"
+                            android:hint="Seconds (0.000125s ~ 30s)"
+                            android:textColor="#cbcdd6"
+                            android:textColorHint="@color/colorWhite"
+                            android:inputType="numberDecimal" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="Sensitivity"
+                        android:textColor="#a0a5b8"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:paddingLeft="4dp">
+
+                        <EditText
+                            android:id="@+id/iso"
+                            android:gravity="top|left"
+                            android:hint="ISO (50 ~ 80000)"
+                            android:textColor="#cbcdd6"
+                            android:textColorHint="@color/colorWhite"
+                            style="@style/EditorFieldStyle"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_marginTop="15dp"
+                    android:text="Exposure Value"
+                    android:textColor="#a0a5b8"/>
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/EV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="25dp"
+                    android:textColor="#a0a5b8"
+                    android:text="EV = 0"
+                    android:textSize="35sp" />
+
+                <RelativeLayout
+                    android:id="@+id/calculate_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/bottomBar">
+
+                    <Button
+                        android:id="@+id/button_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="76dp"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        android:layout_marginEnd="76dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/button"
+                        android:text="Calculate"
+                        android:fontFamily="@font/open_sans"
+                        android:textColor="@color/AliceBlue" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
 
         </RelativeLayout>
 
@@ -33,5 +177,7 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
