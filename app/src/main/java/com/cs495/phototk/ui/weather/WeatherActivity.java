@@ -142,7 +142,7 @@ public class WeatherActivity extends AppCompatActivity {
                 tabLayout = (TabLayout)findViewById(R.id.weather_tab);
                 tabLayout.setupWithViewPager(viewPager);
 
-                Log.d("Location",locationResult.getLastLocation().getLatitude()+"/"+locationResult.getLastLocation().getLongitude());
+                Log.d("MapLocation",locationResult.getLastLocation().getLatitude()+"/"+locationResult.getLastLocation().getLongitude());
 
 
             }

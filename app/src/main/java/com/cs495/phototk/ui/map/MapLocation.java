@@ -1,17 +1,17 @@
 package com.cs495.phototk.ui.map;
 
-public class Location {
+public class MapLocation {
     String uid;
     String title;
     String comments;
     double latitude;
     double longitude;
 
-    public Location() {
+    public MapLocation() {
 
     }
 
-    public Location(String uid, String title, String comments, double latitude, double longitude) {
+    public MapLocation(String uid, String title, String comments, double latitude, double longitude) {
         this.uid = uid;
         this.title = title;
         this.comments = comments;

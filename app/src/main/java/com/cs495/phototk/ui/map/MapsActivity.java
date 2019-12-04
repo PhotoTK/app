@@ -44,6 +44,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_Map_center.xml instead of changing activity_Map.xml
  */
@@ -67,6 +69,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // UI Member Variables
     Button mSaveLocationButton;
     Button mClearLocationsButton;
+
+    // Database Member Variables
+    DatabaseReference locationsDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,6 +267,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         initUI();
         // init listeners
         initOnClickListeners();
+        // init database
+        locationsDatabase = FirebaseDatabase.getInstance().getReference("location");
     }
 
     private void initUI() {
@@ -278,7 +285,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (isUserSignedIn()) {
                     // user is signed-in, save current location
                     Log.d(TAG, "onClick: location saved");
-                    Toast.makeText(MapsActivity.this, "TODO: Save Location", Toast.LENGTH_SHORT).show();
+                    saveLocation();
+                    Toast.makeText(MapsActivity.this, "Location Saved Successfully", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     // no user signed-in, cannot save current location
@@ -315,5 +323,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Boolean isUserSignedIn() {
         return mCurrentUser != null;
+    }
+
+    private void saveLocation() {
+        // get current user's uid
+        String uid = mCurrentUser.getUid();
+        // get title and comments
+        String title = "This is a test title";
+        String comments = "These are test comments";
+        // get current mapLocation
+        double lat = mLastKnownLocation.getLatitude();
+        double lng = mLastKnownLocation.getLongitude();
+        // instantiate a new mapLocation object
+        MapLocation location = new MapLocation(uid, title, comments, lat, lng);
+        // save new location to database
+        locationsDatabase.setValue(location);
     }
 }
