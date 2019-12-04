@@ -38,6 +38,7 @@
             android:rowCount="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:alignmentMode="alignMargins"
             android:columnOrderPreserved="false">
 
@@ -70,7 +71,7 @@
                     android:fontFamily="@font/open_sans"
                     android:text="Weather"
                     android:textColor="#d0d5d9"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -100,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
                     android:text="EXIF"/>
@@ -133,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
 
@@ -168,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/open_sans"
                     android:textColor="#d0d5d9"
                     android:text="Calculator"/>
@@ -201,7 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="12sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
                     android:text="Location Record"/>
@@ -234,7 +235,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="12sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
                     android:text="Gear Management"/>
@@ -267,7 +268,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
                     android:text="Celestial Event"/>
@@ -300,7 +301,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
                     android:text="About Us"/>

@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textColor="#d0d5d9"
                         android:fontFamily="@font/open_sans"
                         android:text="Solar Eclipse"/>
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textColor="#d0d5d9"
                         android:fontFamily="@font/open_sans"
                         android:text="Moon Eclipse"/>
@@ -134,7 +134,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textColor="#d0d5d9"
                         android:fontFamily="@font/open_sans"
                         android:text="Meteor Shower"/>
@@ -167,7 +167,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:textSize="18sp"
+                            android:textSize="14sp"
                             android:fontFamily="@font/open_sans"
                             android:textColor="#d0d5d9"
                             android:text="Search Celestial"/>

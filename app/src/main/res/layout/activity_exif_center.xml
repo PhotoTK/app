@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:text="Import"
                 android:fontFamily="@font/open_sans"
                 android:textColor="#d0d5d9"/>
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:text="Set Exif"
                     android:fontFamily="@font/open_sans"
                     android:textColor="#d0d5d9"/>
