@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,6 +42,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_Map_center.xml instead of changing activity_Map.xml
  */
@@ -58,6 +62,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private Location mLastKnownLocation;
     private LocationCallback locationCallback;
+    private FirebaseUser mCurrentUser;
+
+    // UI Member Variables
+    Button mSaveLocationButton;
+    Button mClearLocationsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        init();
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
@@ -245,10 +255,65 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    private void init() {
+        // get current user
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        // init ui
+        initUI();
+        // init listeners
+        initOnClickListeners();
+    }
+
+    private void initUI() {
+        // Instantiate save and clear buttons
+        mSaveLocationButton = (Button) findViewById(R.id.btnSaveLocation);
+        mClearLocationsButton = (Button) findViewById(R.id.btnClearLocations);
+    }
+
+    private void initOnClickListeners() {
+        // save location button click listener
+        mSaveLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isUserSignedIn()) {
+                    // user is signed-in, save current location
+                    Log.d(TAG, "onClick: location saved");
+                    Toast.makeText(MapsActivity.this, "TODO: Save Location", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // no user signed-in, cannot save current location
+                    Log.d(TAG, "onClick: cannot save location, no user signed-in");
+                    Toast.makeText(MapsActivity.this, "Not Signed-in...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // clear locations button click listener
+        mClearLocationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isUserSignedIn()) {
+                    // user is signed-in, clear locations
+                    Log.d(TAG, "onClick: locations cleared");
+                    Toast.makeText(MapsActivity.this, "TODO: Clear Locations", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // no user signed-in, cannot clear locations
+                    Log.d(TAG, "onClick: cannot clear locations, no user signed-in");
+                    Toast.makeText(MapsActivity.this, "Not Signed-in...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     private void initMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+    }
+
+    private Boolean isUserSignedIn() {
+        return mCurrentUser != null;
     }
 }
