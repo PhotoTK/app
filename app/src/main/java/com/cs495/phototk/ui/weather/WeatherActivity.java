@@ -91,18 +91,21 @@ public class WeatherActivity extends AppCompatActivity {
                         Intent intent0 = new Intent(WeatherActivity.this, MainActivity.class);
                         startActivity(intent0);
                         overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
+                        finish();
                         break;
 
                     case R.id.ic_exif:
                         Intent intent1 = new Intent(WeatherActivity.this, EXIFActivity.class);
                         startActivity(intent1);
                         overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
+                        finish();
                         break;
 
                     case R.id.ic_celestial:
                         Intent intent3 = new Intent(WeatherActivity.this, CelestialActivity.class);
                         startActivity(intent3);
                         overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
+                        finish();
                         break;
 
                     case R.id.ic_map:
@@ -111,6 +114,7 @@ public class WeatherActivity extends AppCompatActivity {
                             startActivity(intent4);
                             overridePendingTransition(R.anim.slide_up, R.anim.no_anim);
                         }
+                        finish();
                         break;
                 }
                 return false;

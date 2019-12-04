@@ -202,10 +202,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
-                    android:text="Location Record"/>
+                    android:text="Location"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -235,10 +235,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
-                    android:text="Gear Management"/>
+                    android:text="Gear"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
