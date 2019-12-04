@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#111111"
     tools:context=".ui.user.UserActivity"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:text="User"
+            android:textSize="22sp"
+            android:textColor="#f5fcff"
+            android:fontFamily="@font/open_sans_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="62dp"
+            android:layout_height="62dp"/>
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,40 +36,48 @@
         android:id="@+id/whoSignedInTextView"
         android:text="Not Signed In"
         android:textColor="@color/AliceBlue"
-        android:paddingTop="50dp"
+        android:layout_marginTop="20dp"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/btnAccount"
         android:text="Account"
         android:background="@drawable/button"
         android:textColor="@color/AliceBlue"
+        android:drawableLeft="@drawable/user_account"
+        android:fontFamily="@font/open_sans"
         tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:background="@drawable/button"
         android:text="Sign In"
         android:textColor="@color/AliceBlue"
+        android:drawableLeft="@drawable/user_login"
+        android:fontFamily="@font/open_sans"
         tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:background="@drawable/button"
         android:text="Sign Out"
         android:textColor="@color/AliceBlue"
+        android:drawableLeft="@drawable/user_logout"
+        android:fontFamily="@font/open_sans"
         tools:ignore="HardcodedText" />
+
+
 
 </LinearLayout>
