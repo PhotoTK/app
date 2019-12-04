@@ -61,6 +61,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.navigation:navigation-runtime:2.1.0'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+    implementation 'com.label305:asynctask:1.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

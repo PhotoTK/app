@@ -69,8 +69,14 @@ public class weather_forecast extends Fragment {
         return itemView;
     }
 
-    public  void  onStop()
-    {
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onStop() {
         compositeDisposable.clear();
         super.onStop();
     }
