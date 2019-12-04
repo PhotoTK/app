@@ -326,6 +326,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void saveLocation() {
+        Log.d(TAG, "saveLocation: called");
         // get current user's uid
         String uid = mCurrentUser.getUid();
         // get title and comments
@@ -337,6 +338,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // instantiate a new mapLocation object
         MapLocation location = new MapLocation(uid, title, comments, lat, lng);
         // save new location to database
-        locationsDatabase.setValue(location);
+        String locID = locationsDatabase.push().getKey();
+        locationsDatabase.child(locID).setValue(location);
     }
 }
