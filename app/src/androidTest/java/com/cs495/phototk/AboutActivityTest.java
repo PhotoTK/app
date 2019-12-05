@@ -54,9 +54,8 @@ public class AboutActivityTest {
     @Test
     public void testVideoButton()
     {
-        View view = mActivity.findViewById(R.id.btnvideo);
-        assertNotNull(view);
-        onView(withId(R.id.btnvideo)).perform(click());
+        onView(withId(R.id.btnvideo)).perform(ViewActions.scrollTo()).perform(click());
+
     }
 
 
