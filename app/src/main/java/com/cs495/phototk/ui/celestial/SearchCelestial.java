@@ -42,7 +42,7 @@ public class SearchCelestial extends AppCompatActivity {
                     centralDuration = cur.getString(cur.getColumnIndex("centralDuration"));
                     LinearLayout output =(LinearLayout) findViewById(R.id.search_celestial);
                     TextView op =new TextView(SearchCelestial.this);
-                    op.setText("Time: " + (time) + "\n" + "Location: " + (location) + "\n" + "PathWidth: " + (pathWidth) + "mi" + "\n" + "CentralDuration: " + (centralDuration));
+                    op.setText("Time: " + (time) + "\n" + "MapLocation: " + (location) + "\n" + "PathWidth: " + (pathWidth) + "mi" + "\n" + "CentralDuration: " + (centralDuration));
                     op.setTextSize(20);
                     output.addView(op);
                 }

@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,11 +37,23 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*READ ME: The following code in onCreate is for the navigation bar. Try not to modify it. In addition, change the activity_Map_center.xml instead of changing activity_Map.xml
  */
@@ -58,6 +72,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private Location mLastKnownLocation;
     private LocationCallback locationCallback;
+    private FirebaseUser mCurrentUser;
+
+    // UI Member Variables
+    Button mSaveLocationButton;
+    Button mClearLocationsButton;
+
+    // Database Member Variables
+    DatabaseReference mLocationsDatabase;
+    List<MapLocation> mLocationsList;
+    ValueEventListener mValueEventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +89,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        // initialize activity
+        init();
 
+        // Initialize bottom navigation menu
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
@@ -99,9 +126,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return false;
             }
         });
-        getLocationPermissions();
-    }
 
+        // get location permissions
+        getLocationPermissions();
+
+        // only get user's location data if a valid user is signed-in
+        if (isUserSignedIn()) {
+            Log.d(TAG, "onCreate: User is signed-in, querying location database");
+            // attach value event listener to location database reference
+            Query locationQuery = mLocationsDatabase.orderByChild("uid").equalTo(mCurrentUser.getUid());
+            locationQuery.addListenerForSingleValueEvent(mValueEventListener);
+        }
+    }
 
     /**
      * Manipulates the map once available.
@@ -245,10 +281,140 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    private void init() {
+        // get current user
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        // init ui
+        initUI();
+        // init listeners
+        initOnClickListeners();
+        // init database
+        initDatabase();
+    }
+
+    private void initUI() {
+        // Instantiate save and clear buttons
+        mSaveLocationButton = (Button) findViewById(R.id.btnSaveLocation);
+        mClearLocationsButton = (Button) findViewById(R.id.btnClearLocations);
+    }
+
+    private void initOnClickListeners() {
+        // save location button click listener
+        mSaveLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isUserSignedIn()) {
+                    // user is signed-in, save current location
+                    Log.d(TAG, "onClick: location saved");
+                    saveLocation();
+                    Toast.makeText(MapsActivity.this, "Location Saved Successfully", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // no user signed-in, cannot save current location
+                    Log.d(TAG, "onClick: cannot save location, no user signed-in");
+                    Toast.makeText(MapsActivity.this, "Not Signed-in...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // clear locations button click listener
+        mClearLocationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isUserSignedIn()) {
+                    // user is signed-in, clear locations
+                    Log.d(TAG, "onClick: locations cleared");
+                    clearUserLocations();
+                    Toast.makeText(MapsActivity.this, "Locations cleared successfully", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // no user signed-in, cannot clear locations
+                    Log.d(TAG, "onClick: cannot clear locations, no user signed-in");
+                    Toast.makeText(MapsActivity.this, "Not Signed-in...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void initDatabase() {
+        Log.d(TAG, "initDatabase: called");
+        // init database
+        mLocationsDatabase = FirebaseDatabase.getInstance().getReference("location");
+        // initialize mLocationsList
+        mLocationsList = new ArrayList<>();
+        // create value event listener
+        mValueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d(TAG, "onDataChange: called");
+                mLocationsList.clear();
+                if (dataSnapshot.exists()) {
+                    Log.d(TAG, "onDataChange: snapshot exists");
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        MapLocation location = snapshot.getValue(MapLocation.class);
+                        mLocationsList.add(location);
+                    }
+                    displayLocationMarkers();
+                    Log.d(TAG, "onDataChange: number of locations received in query = " + mLocationsList.size());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, "onCancelled: called");
+            }
+        };
+    }
+
     private void initMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+    }
+
+    private Boolean isUserSignedIn() {
+        return mCurrentUser != null;
+    }
+
+    private void saveLocation() {
+        Log.d(TAG, "saveLocation: called");
+        // get current user's uid
+        String uid = mCurrentUser.getUid();
+        // get title
+        // TODO: Allow user to set custom title
+        String title = "This is a test title";
+        // get current mapLocation
+        double lat = mLastKnownLocation.getLatitude();
+        double lng = mLastKnownLocation.getLongitude();
+        // save new location to database
+        String key = mLocationsDatabase.push().getKey();
+        // instantiate a new mapLocation object
+        MapLocation location = new MapLocation(key, uid, title, lat, lng);
+        mLocationsDatabase.child(key).setValue(location);
+        // add new location to map
+        LatLng latLng = new LatLng(lat, lng);
+        mMap.addMarker(new MarkerOptions().position(latLng).title(location.getTitle()).snippet("" + latLng));
+    }
+
+    private void displayLocationMarkers() {
+        for (MapLocation location : mLocationsList) {
+            // create LatLng object for each location
+            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(latLng).title(location.getTitle()).snippet("" + latLng));
+        }
+    }
+
+    private void clearUserLocations() {
+        // delete all user's locations from database
+        for (MapLocation location : mLocationsList) {
+            deleteLocationFromDatabase(location.getKey());
+        }
+        // clear locations list
+        mLocationsList.clear();
+    }
+
+    private void deleteLocationFromDatabase(String key) {
+        mLocationsDatabase.child(key).removeValue();
     }
 }

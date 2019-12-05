@@ -20,6 +20,27 @@
 
         </RelativeLayout>
 
+        <Button
+            android:id="@+id/btnSaveLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomBar"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="0dp"
+            android:text="Save Location"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnClearLocations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomBar"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/btnSaveLocation"
+            android:text="Clear Locations"
+            tools:ignore="HardcodedText" />
 
         <RelativeLayout
             android:id="@+id/bottomBar"
