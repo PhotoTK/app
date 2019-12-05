@@ -92,7 +92,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
     public void button_Calculate() {
-        Button addGearButton = (Button) findViewById(R.id.button_time);
+        Button addGearButton = (Button) findViewById(R.id.btnCalculate);
         addGearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
