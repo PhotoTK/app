@@ -391,6 +391,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // save new location to database
         String locID = mLocationsDatabase.push().getKey();
         mLocationsDatabase.child(locID).setValue(location);
+        // add new location to map
+        LatLng latLng = new LatLng(lat, lng);
+        mMap.addMarker(new MarkerOptions().position(latLng).title(location.getTitle()).snippet("" + latLng));
     }
 
     private void displayLocationMarkers() {
