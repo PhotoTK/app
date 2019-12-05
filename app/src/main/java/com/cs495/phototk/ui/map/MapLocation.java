@@ -3,7 +3,6 @@ package com.cs495.phototk.ui.map;
 public class MapLocation {
     String uid;
     String title;
-    String comments;
     double latitude;
     double longitude;
 
@@ -11,10 +10,9 @@ public class MapLocation {
 
     }
 
-    public MapLocation(String uid, String title, String comments, double latitude, double longitude) {
+    public MapLocation(String uid, String title, double latitude, double longitude) {
         this.uid = uid;
         this.title = title;
-        this.comments = comments;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -25,10 +23,6 @@ public class MapLocation {
 
     public String getTitle() {
         return title;
-    }
-
-    public String getComments() {
-        return comments;
     }
 
     public double getLatitude() {

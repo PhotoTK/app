@@ -380,15 +380,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d(TAG, "saveLocation: called");
         // get current user's uid
         String uid = mCurrentUser.getUid();
-        // get title and comments
-        // TODO: Allow user to set custom title and comments
+        // get title
+        // TODO: Allow user to set custom title
         String title = "This is a test title";
-        String comments = "These are test comments";
         // get current mapLocation
         double lat = mLastKnownLocation.getLatitude();
         double lng = mLastKnownLocation.getLongitude();
         // instantiate a new mapLocation object
-        MapLocation location = new MapLocation(uid, title, comments, lat, lng);
+        MapLocation location = new MapLocation(uid, title, lat, lng);
         // save new location to database
         String locID = mLocationsDatabase.push().getKey();
         mLocationsDatabase.child(locID).setValue(location);
