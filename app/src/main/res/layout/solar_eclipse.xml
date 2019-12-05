@@ -14,7 +14,7 @@
     android:divider="@drawable/line"
     android:dividerPadding="0dp"
     android:showDividers="middle"
-    android:background="#F9FAFC" >
+    android:background="#4B70BB" >
 
     <RelativeLayout
         android:id="@+id/RelativeLayoutSolar"

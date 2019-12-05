@@ -52,6 +52,22 @@ public class DataBase extends SQLiteOpenHelper {
         val3.put("pathWidth",327);
         val3.put("centralDuration","3:51");
         db.insert("celestial","null",val3);
+
+        ContentValues val4 = new ContentValues();
+        val4.put("id","120211204");
+        val4.put("time","2021/December/4 07:34:38");
+        val4.put("location","76.8°S 46.2°W");
+        val4.put("pathWidth",260);
+        val4.put("centralDuration","1:54");
+        db.insert("celestial","null",val4);
+
+        ContentValues val5 = new ContentValues();
+        val5.put("id","120220430");
+        val5.put("time","2022/April/30 20:42:36");
+        val5.put("location","62.1°S 71.5°W");
+        val5.put("pathWidth", "NULL");
+        val5.put("centralDuration","NULL");
+        db.insert("celestial","null",val5);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

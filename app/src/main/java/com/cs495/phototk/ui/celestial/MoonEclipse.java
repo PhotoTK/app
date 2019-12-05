@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cs495.phototk.R;
 
 public class MoonEclipse extends AppCompatActivity {
-        private CheckBox check, check1, check2, check3, check4, check5, check6;
-        private SharedPreferences sp, sp1, sp2, sp3, sp4, sp5, sp6;
+        private CheckBox check, check1, check2, check3, check4, check5, check6, check7, check8;
+        private SharedPreferences sp, sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -24,6 +24,8 @@ public class MoonEclipse extends AppCompatActivity {
             check4 = findViewById(R.id.btntwo4);
             check5 = findViewById(R.id.btntwo5);
             check6 = findViewById(R.id.btntwo6);
+            check7 = findViewById(R.id.btntwo7);
+            check8 = findViewById(R.id.btntwo8);
             sp = getSharedPreferences("isCheckedTwo", 0);
             sp1 = getSharedPreferences("isCheckedTwo1", 0);
             sp2 = getSharedPreferences("isCheckedTwo2", 0);
@@ -31,6 +33,8 @@ public class MoonEclipse extends AppCompatActivity {
             sp4 = getSharedPreferences("isCheckedTwo4", 0);
             sp5 = getSharedPreferences("isCheckedTwo5", 0);
             sp6 = getSharedPreferences("isCheckedTwo6", 0);
+            sp7 = getSharedPreferences("isCheckedTwo7", 0);
+            sp8 = getSharedPreferences("isCheckedTwo8", 0);
             boolean result = sp.getBoolean("choose", false);
             boolean result1 = sp1.getBoolean("choose", false);
             boolean result2 = sp2.getBoolean("choose", false);
@@ -38,6 +42,8 @@ public class MoonEclipse extends AppCompatActivity {
             boolean result4 = sp4.getBoolean("choose", false);
             boolean result5 = sp5.getBoolean("choose", false);
             boolean result6 = sp6.getBoolean("choose", false);
+            boolean result7 = sp7.getBoolean("choose", false);
+            boolean result8 = sp8.getBoolean("choose", false);
             check.setChecked(result);
             check1.setChecked(result1);
             check2.setChecked(result2);
@@ -45,6 +51,8 @@ public class MoonEclipse extends AppCompatActivity {
             check4.setChecked(result4);
             check5.setChecked(result5);
             check6.setChecked(result6);
+            check7.setChecked(result7);
+            check8.setChecked(result8);
             check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -187,6 +195,48 @@ public class MoonEclipse extends AppCompatActivity {
                         Toast.makeText(MoonEclipse.this, "No Selected", Toast.LENGTH_SHORT).show();
                         sp6 = getSharedPreferences("isCheckedTwo6", 0);
                         SharedPreferences.Editor edit = sp6.edit();
+                        edit.putBoolean("choose", false);
+                        edit.apply();
+                    }
+                }
+            });
+
+            check7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        check7.setText("Selected");
+                        Toast.makeText(MoonEclipse.this, "Selected", Toast.LENGTH_SHORT).show();
+                        sp7 = getSharedPreferences("isCheckedTwo7", 0);
+                        SharedPreferences.Editor edit = sp7.edit();
+                        edit.putBoolean("choose", true);
+                        edit.apply();
+                    } else {
+                        check7.setText("No Selected");
+                        Toast.makeText(MoonEclipse.this, "No Selected", Toast.LENGTH_SHORT).show();
+                        sp7 = getSharedPreferences("isCheckedTwo7", 0);
+                        SharedPreferences.Editor edit = sp7.edit();
+                        edit.putBoolean("choose", false);
+                        edit.apply();
+                    }
+                }
+            });
+
+            check8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        check8.setText("Selected");
+                        Toast.makeText(MoonEclipse.this, "Selected", Toast.LENGTH_SHORT).show();
+                        sp8 = getSharedPreferences("isCheckedTwo8", 0);
+                        SharedPreferences.Editor edit = sp8.edit();
+                        edit.putBoolean("choose", true);
+                        edit.apply();
+                    } else {
+                        check8.setText("No Selected");
+                        Toast.makeText(MoonEclipse.this, "No Selected", Toast.LENGTH_SHORT).show();
+                        sp8 = getSharedPreferences("isCheckedTwo8", 0);
+                        SharedPreferences.Editor edit = sp8.edit();
                         edit.putBoolean("choose", false);
                         edit.apply();
                     }
