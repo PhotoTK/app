@@ -271,7 +271,7 @@
                     android:textSize="14sp"
                     android:textColor="#d0d5d9"
                     android:fontFamily="@font/open_sans"
-                    android:text="Celestial Event"/>
+                    android:text="Celestial"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
