@@ -324,7 +324,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (isUserSignedIn()) {
                     // user is signed-in, clear locations
                     Log.d(TAG, "onClick: locations cleared");
-                    Toast.makeText(MapsActivity.this, "TODO: Clear Locations", Toast.LENGTH_SHORT).show();
+                    clearUserLocations();
+                    Toast.makeText(MapsActivity.this, "Locations cleared successfully", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     // no user signed-in, cannot clear locations
@@ -386,11 +387,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // get current mapLocation
         double lat = mLastKnownLocation.getLatitude();
         double lng = mLastKnownLocation.getLongitude();
-        // instantiate a new mapLocation object
-        MapLocation location = new MapLocation(uid, title, lat, lng);
         // save new location to database
-        String locID = mLocationsDatabase.push().getKey();
-        mLocationsDatabase.child(locID).setValue(location);
+        String key = mLocationsDatabase.push().getKey();
+        // instantiate a new mapLocation object
+        MapLocation location = new MapLocation(key, uid, title, lat, lng);
+        mLocationsDatabase.child(key).setValue(location);
         // add new location to map
         LatLng latLng = new LatLng(lat, lng);
         mMap.addMarker(new MarkerOptions().position(latLng).title(location.getTitle()).snippet("" + latLng));
@@ -402,5 +403,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
             mMap.addMarker(new MarkerOptions().position(latLng).title(location.getTitle()).snippet("" + latLng));
         }
+    }
+
+    private void clearUserLocations() {
+        // delete all user's locations from database
+        for (MapLocation location : mLocationsList) {
+            deleteLocationFromDatabase(location.getKey());
+        }
+        // clear locations list
+        mLocationsList.clear();
+    }
+
+    private void deleteLocationFromDatabase(String key) {
+        mLocationsDatabase.child(key).removeValue();
     }
 }
