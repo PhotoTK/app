@@ -412,6 +412,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         // clear locations list
         mLocationsList.clear();
+        mMap.clear();
     }
 
     private void deleteLocationFromDatabase(String key) {
