@@ -29,7 +29,56 @@
             android:src="@mipmap/ic_launcher"
             android:layout_width="62dp"
             android:layout_height="62dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            android:layout_marginTop="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:fontFamily="sans-serif-light"
+                    android:text="PhotoTK is a project made for our CS 495 class in the University of Alabama.
+\n\nThis is an app aims to let people that are interested in photography get to take good quality photos.\n\nIt is
+less of a hassle that you don't need to download a lot of different applications or do lots of research because we got them all for you.
+\n\nShoot your shot!\nI hope you enjoy using this app.\n\nDevelopers:\n\nBrian Lee
+\nBrett Heithold\nMinrui Huang\nXietong Wei\n\nReach us at phototkapp@gmail.com\n"
+
+                    android:textColor="#a0a5b8"
+                    android:textSize="20dp" />
+
+
+
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingLeft="4dp">
+
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnvideo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:textColor="@color/AliceBlue"
+                android:fontFamily="@font/open_sans"
+                android:drawableLeft="@drawable/youtube"
+                android:text="Watch Video" />
+        </LinearLayout>
     </RelativeLayout>
+
 
 
 

@@ -20,40 +20,7 @@
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="80dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TextStyle"
-                android:fontFamily="sans-serif-light"
-                android:text="PhotoTK is a project made for our CS 495 class in the University of Alabama.
-\n\nThis is an app aims to let people that are interested in photography get to take good quality photos.\n\n
-It is less of a hassle that you don't need to download a lot of different applications or do lots of research because we got them all for you.
-\n\nShoot your shot!\nI hope you enjoy using this app.\n\nDevelopers:\n\nBrian Lee
-\nBrett Heithold\nMinrui Huang\nXietong Wei\n\nReach us at phototkapp@gmail.com"
-
-                android:textColor="#a0a5b8"
-                android:textSize="20dp" />
-
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="vertical"
-                android:paddingLeft="4dp">
-
-
-        </LinearLayout>
-        </LinearLayout>
 
 
         <RelativeLayout
